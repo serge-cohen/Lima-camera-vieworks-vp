@@ -17,12 +17,12 @@
 
 
 
-viewworks-vp-objs = VieworksVPCamera.o VieworksVPInterface.o VieworksVPDetInfoCtrlObj.o VieworksVPSyncCtrlObj.o VieworksVPRoiCtrlObj.o VieworksVPBinCtrlObj.o
+vieworks-vp-objs = VieworksVPCamera.o VieworksVPInterface.o VieworksVPDetInfoCtrlObj.o VieworksVPSyncCtrlObj.o VieworksVPRoiCtrlObj.o VieworksVPBinCtrlObj.o
 
 SRCS = $(vieworks-vp-objs:.o=.cpp) 
 
 CXXFLAGS += -I../include -I../../../hardware/include -I../../../common/include \
-			-I/usr/local/include \
+			-I/opt/siso/.... \
 			-Wall -pthread -fPIC -g
 
 all:	VieworksVP.o

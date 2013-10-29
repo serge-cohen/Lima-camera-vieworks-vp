@@ -264,7 +264,7 @@
 				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = IPANEMA;
 			};
-			buildConfigurationList = 95B6658514E983F900A8C6FC /* Build configuration list for PBXProject "vieworks-vp_pluggin" */;
+			buildConfigurationList = 95B6658514E983F900A8C6FC /* Build configuration list for PBXProject "vieworks-vp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -397,7 +397,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95B6658514E983F900A8C6FC /* Build configuration list for PBXProject "vieworks-vp_pluggin" */ = {
+		95B6658514E983F900A8C6FC /* Build configuration list for PBXProject "vieworks-vp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95B6658714E983F900A8C6FC /* Debug */,
