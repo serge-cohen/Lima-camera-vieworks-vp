@@ -7,43 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		958C873C17B65DBA003B74B2 /* Andor3Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 958C873817B65DBA003B74B2 /* Andor3Camera.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		958C873D17B65DBA003B74B2 /* Andor3DetInfoCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 958C873917B65DBA003B74B2 /* Andor3DetInfoCtrlObj.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		958C873E17B65DBA003B74B2 /* Andor3Interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 958C873A17B65DBA003B74B2 /* Andor3Interface.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		958C873F17B65DBA003B74B2 /* Andor3SyncCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 958C873B17B65DBA003B74B2 /* Andor3SyncCtrlObj.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		958C874417B65DC9003B74B2 /* Andor3Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 958C874017B65DC9003B74B2 /* Andor3Camera.cpp */; };
-		958C874517B65DC9003B74B2 /* Andor3DetInfoCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 958C874117B65DC9003B74B2 /* Andor3DetInfoCtrlObj.cpp */; };
-		958C874617B65DC9003B74B2 /* Andor3Interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 958C874217B65DC9003B74B2 /* Andor3Interface.cpp */; };
-		958C874717B65DC9003B74B2 /* Andor3SyncCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 958C874317B65DC9003B74B2 /* Andor3SyncCtrlObj.cpp */; };
-		95E42AF6181DBB3D0090742A /* Andor3BinCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95E42AF4181DBB3D0090742A /* Andor3BinCtrlObj.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95E42AF7181DBB3D0090742A /* Andor3RoiCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95E42AF5181DBB3D0090742A /* Andor3RoiCtrlObj.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95E42AFA181DBB4D0090742A /* Andor3BinCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95E42AF8181DBB4D0090742A /* Andor3BinCtrlObj.cpp */; };
-		95E42AFB181DBB4D0090742A /* Andor3RoiCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95E42AF9181DBB4D0090742A /* Andor3RoiCtrlObj.cpp */; };
+		958C873C17B65DBA003B74B2 /* VieworksVPCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 958C873817B65DBA003B74B2 /* VieworksVPCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		958C873D17B65DBA003B74B2 /* VieworksVPDetInfoCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 958C873917B65DBA003B74B2 /* VieworksVPDetInfoCtrlObj.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		958C873E17B65DBA003B74B2 /* VieworksVPInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 958C873A17B65DBA003B74B2 /* VieworksVPInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		958C873F17B65DBA003B74B2 /* VieworksVPSyncCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 958C873B17B65DBA003B74B2 /* VieworksVPSyncCtrlObj.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		958C874417B65DC9003B74B2 /* VieworksVPCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 958C874017B65DC9003B74B2 /* VieworksVPCamera.cpp */; };
+		958C874517B65DC9003B74B2 /* VieworksVPDetInfoCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 958C874117B65DC9003B74B2 /* VieworksVPDetInfoCtrlObj.cpp */; };
+		958C874617B65DC9003B74B2 /* VieworksVPInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 958C874217B65DC9003B74B2 /* VieworksVPInterface.cpp */; };
+		958C874717B65DC9003B74B2 /* VieworksVPSyncCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 958C874317B65DC9003B74B2 /* VieworksVPSyncCtrlObj.cpp */; };
+		95E42AF6181DBB3D0090742A /* VieworksVPBinCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95E42AF4181DBB3D0090742A /* VieworksVPBinCtrlObj.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95E42AF7181DBB3D0090742A /* VieworksVPRoiCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95E42AF5181DBB3D0090742A /* VieworksVPRoiCtrlObj.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95E42AFA181DBB4D0090742A /* VieworksVPBinCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95E42AF8181DBB4D0090742A /* VieworksVPBinCtrlObj.cpp */; };
+		95E42AFB181DBB4D0090742A /* VieworksVPRoiCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95E42AF9181DBB4D0090742A /* VieworksVPRoiCtrlObj.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		95365B76152449960099116D /* common */ = {isa = PBXFileReference; lastKnownFileType = folder; name = common; path = ../../common; sourceTree = "<group>"; };
 		95365B77152449960099116D /* control */ = {isa = PBXFileReference; lastKnownFileType = folder; name = control; path = ../../control; sourceTree = "<group>"; };
 		95365B78152449960099116D /* hardware */ = {isa = PBXFileReference; lastKnownFileType = folder; name = hardware; path = ../../hardware; sourceTree = "<group>"; };
-		956C320F1523BB6B00F0632C /* andor3.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = andor3.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		956C320F1523BB6B00F0632C /* vieworks-vp.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "vieworks-vp.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		956C32141523BB6C00F0632C /* andor3Proj.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = andor3Proj.xcconfig; sourceTree = "<group>"; };
 		956C32151523BB6C00F0632C /* andor3Target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = andor3Target.xcconfig; sourceTree = "<group>"; };
 		95848CF5180D9D96004B7C8A /* imxpad */ = {isa = PBXFileReference; lastKnownFileType = folder; name = imxpad; path = ../imxpad; sourceTree = "<group>"; };
 		95848CF6180D9EEB004B7C8A /* xh */ = {isa = PBXFileReference; lastKnownFileType = folder; name = xh; path = ../xh; sourceTree = "<group>"; };
 		95848CF7180D9F09004B7C8A /* pointgrey */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pointgrey; path = ../pointgrey; sourceTree = "<group>"; };
 		95848CF8180D9F34004B7C8A /* dexela */ = {isa = PBXFileReference; lastKnownFileType = folder; name = dexela; path = ../dexela; sourceTree = "<group>"; };
-		958C873817B65DBA003B74B2 /* Andor3Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Andor3Camera.h; sourceTree = "<group>"; };
-		958C873917B65DBA003B74B2 /* Andor3DetInfoCtrlObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Andor3DetInfoCtrlObj.h; sourceTree = "<group>"; };
-		958C873A17B65DBA003B74B2 /* Andor3Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Andor3Interface.h; sourceTree = "<group>"; };
-		958C873B17B65DBA003B74B2 /* Andor3SyncCtrlObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Andor3SyncCtrlObj.h; sourceTree = "<group>"; };
-		958C874017B65DC9003B74B2 /* Andor3Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Andor3Camera.cpp; sourceTree = "<group>"; };
-		958C874117B65DC9003B74B2 /* Andor3DetInfoCtrlObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Andor3DetInfoCtrlObj.cpp; sourceTree = "<group>"; };
-		958C874217B65DC9003B74B2 /* Andor3Interface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Andor3Interface.cpp; sourceTree = "<group>"; };
-		958C874317B65DC9003B74B2 /* Andor3SyncCtrlObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Andor3SyncCtrlObj.cpp; sourceTree = "<group>"; };
+		958C873817B65DBA003B74B2 /* VieworksVPCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VieworksVPCamera.h; sourceTree = "<group>"; };
+		958C873917B65DBA003B74B2 /* VieworksVPDetInfoCtrlObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VieworksVPDetInfoCtrlObj.h; sourceTree = "<group>"; };
+		958C873A17B65DBA003B74B2 /* VieworksVPInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VieworksVPInterface.h; sourceTree = "<group>"; };
+		958C873B17B65DBA003B74B2 /* VieworksVPSyncCtrlObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VieworksVPSyncCtrlObj.h; sourceTree = "<group>"; };
+		958C874017B65DC9003B74B2 /* VieworksVPCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VieworksVPCamera.cpp; sourceTree = "<group>"; };
+		958C874117B65DC9003B74B2 /* VieworksVPDetInfoCtrlObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VieworksVPDetInfoCtrlObj.cpp; sourceTree = "<group>"; };
+		958C874217B65DC9003B74B2 /* VieworksVPInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VieworksVPInterface.cpp; sourceTree = "<group>"; };
+		958C874317B65DC9003B74B2 /* VieworksVPSyncCtrlObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VieworksVPSyncCtrlObj.cpp; sourceTree = "<group>"; };
 		958C874817B65DD0003B74B2 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		958C874A17B65DDC003B74B2 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		958C874C17B65DE8003B74B2 /* Andor3Camera.sip */ = {isa = PBXFileReference; lastKnownFileType = text; path = Andor3Camera.sip; sourceTree = "<group>"; };
-		958C874D17B65DE8003B74B2 /* Andor3Interface.sip */ = {isa = PBXFileReference; lastKnownFileType = text; path = Andor3Interface.sip; sourceTree = "<group>"; };
+		958C874C17B65DE8003B74B2 /* VieworksVPCamera.sip */ = {isa = PBXFileReference; lastKnownFileType = text; path = VieworksVPCamera.sip; sourceTree = "<group>"; };
+		958C874D17B65DE8003B74B2 /* VieworksVPInterface.sip */ = {isa = PBXFileReference; lastKnownFileType = text; path = VieworksVPInterface.sip; sourceTree = "<group>"; };
 		958C874E17B65DF0003B74B2 /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
 		958C874F17B65E1F003B74B2 /* index.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = index.rst; sourceTree = "<group>"; };
 		958C875017B65E1F003B74B2 /* neo_header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = neo_header.jpg; sourceTree = "<group>"; };
@@ -67,10 +67,10 @@
 		95D5EA4A1526245D008221ED /* sip */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sip; path = ../pco/sip; sourceTree = "<group>"; };
 		95D5EA4B1526245D008221ED /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../pco/src; sourceTree = "<group>"; };
 		95D5EA4C1526245D008221ED /* VERSION */ = {isa = PBXFileReference; lastKnownFileType = text; name = VERSION; path = ../pco/VERSION; sourceTree = "<group>"; };
-		95E42AF4181DBB3D0090742A /* Andor3BinCtrlObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Andor3BinCtrlObj.h; sourceTree = "<group>"; };
-		95E42AF5181DBB3D0090742A /* Andor3RoiCtrlObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Andor3RoiCtrlObj.h; sourceTree = "<group>"; };
-		95E42AF8181DBB4D0090742A /* Andor3BinCtrlObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Andor3BinCtrlObj.cpp; sourceTree = "<group>"; };
-		95E42AF9181DBB4D0090742A /* Andor3RoiCtrlObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Andor3RoiCtrlObj.cpp; sourceTree = "<group>"; };
+		95E42AF4181DBB3D0090742A /* VieworksVPBinCtrlObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VieworksVPBinCtrlObj.h; sourceTree = "<group>"; };
+		95E42AF5181DBB3D0090742A /* VieworksVPRoiCtrlObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VieworksVPRoiCtrlObj.h; sourceTree = "<group>"; };
+		95E42AF8181DBB4D0090742A /* VieworksVPBinCtrlObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VieworksVPBinCtrlObj.cpp; sourceTree = "<group>"; };
+		95E42AF9181DBB4D0090742A /* VieworksVPRoiCtrlObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VieworksVPRoiCtrlObj.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,12 +87,12 @@
 		955AAC3F17B6584000A74F95 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				958C873817B65DBA003B74B2 /* Andor3Camera.h */,
-				958C873917B65DBA003B74B2 /* Andor3DetInfoCtrlObj.h */,
-				958C873A17B65DBA003B74B2 /* Andor3Interface.h */,
-				958C873B17B65DBA003B74B2 /* Andor3SyncCtrlObj.h */,
-				95E42AF5181DBB3D0090742A /* Andor3RoiCtrlObj.h */,
-				95E42AF4181DBB3D0090742A /* Andor3BinCtrlObj.h */,
+				958C873817B65DBA003B74B2 /* VieworksVPCamera.h */,
+				958C873917B65DBA003B74B2 /* VieworksVPDetInfoCtrlObj.h */,
+				958C873A17B65DBA003B74B2 /* VieworksVPInterface.h */,
+				958C873B17B65DBA003B74B2 /* VieworksVPSyncCtrlObj.h */,
+				95E42AF5181DBB3D0090742A /* VieworksVPRoiCtrlObj.h */,
+				95E42AF4181DBB3D0090742A /* VieworksVPBinCtrlObj.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -127,7 +127,7 @@
 		956C32101523BB6B00F0632C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				956C320F1523BB6B00F0632C /* andor3.dylib */,
+				956C320F1523BB6B00F0632C /* vieworks-vp.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -161,12 +161,12 @@
 			isa = PBXGroup;
 			children = (
 				958C874817B65DD0003B74B2 /* Makefile */,
-				958C874017B65DC9003B74B2 /* Andor3Camera.cpp */,
-				958C874117B65DC9003B74B2 /* Andor3DetInfoCtrlObj.cpp */,
-				958C874217B65DC9003B74B2 /* Andor3Interface.cpp */,
-				958C874317B65DC9003B74B2 /* Andor3SyncCtrlObj.cpp */,
-				95E42AF9181DBB4D0090742A /* Andor3RoiCtrlObj.cpp */,
-				95E42AF8181DBB4D0090742A /* Andor3BinCtrlObj.cpp */,
+				958C874017B65DC9003B74B2 /* VieworksVPCamera.cpp */,
+				958C874117B65DC9003B74B2 /* VieworksVPDetInfoCtrlObj.cpp */,
+				958C874217B65DC9003B74B2 /* VieworksVPInterface.cpp */,
+				958C874317B65DC9003B74B2 /* VieworksVPSyncCtrlObj.cpp */,
+				95E42AF9181DBB4D0090742A /* VieworksVPRoiCtrlObj.cpp */,
+				95E42AF8181DBB4D0090742A /* VieworksVPBinCtrlObj.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -174,8 +174,8 @@
 		95B6659F14E9847500A8C6FC /* sip */ = {
 			isa = PBXGroup;
 			children = (
-				958C874C17B65DE8003B74B2 /* Andor3Camera.sip */,
-				958C874D17B65DE8003B74B2 /* Andor3Interface.sip */,
+				958C874C17B65DE8003B74B2 /* VieworksVPCamera.sip */,
+				958C874D17B65DE8003B74B2 /* VieworksVPInterface.sip */,
 			);
 			path = sip;
 			sourceTree = "<group>";
@@ -226,21 +226,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				958C873C17B65DBA003B74B2 /* Andor3Camera.h in Headers */,
-				958C873D17B65DBA003B74B2 /* Andor3DetInfoCtrlObj.h in Headers */,
-				958C873E17B65DBA003B74B2 /* Andor3Interface.h in Headers */,
-				958C873F17B65DBA003B74B2 /* Andor3SyncCtrlObj.h in Headers */,
-				95E42AF6181DBB3D0090742A /* Andor3BinCtrlObj.h in Headers */,
-				95E42AF7181DBB3D0090742A /* Andor3RoiCtrlObj.h in Headers */,
+				958C873C17B65DBA003B74B2 /* VieworksVPCamera.h in Headers */,
+				958C873D17B65DBA003B74B2 /* VieworksVPDetInfoCtrlObj.h in Headers */,
+				958C873E17B65DBA003B74B2 /* VieworksVPInterface.h in Headers */,
+				958C873F17B65DBA003B74B2 /* VieworksVPSyncCtrlObj.h in Headers */,
+				95E42AF6181DBB3D0090742A /* VieworksVPBinCtrlObj.h in Headers */,
+				95E42AF7181DBB3D0090742A /* VieworksVPRoiCtrlObj.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		956C320E1523BB6B00F0632C /* andor3 */ = {
+		956C320E1523BB6B00F0632C /* vieworks-vp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 956C321C1523BB6C00F0632C /* Build configuration list for PBXNativeTarget "andor3" */;
+			buildConfigurationList = 956C321C1523BB6C00F0632C /* Build configuration list for PBXNativeTarget "vieworks-vp" */;
 			buildPhases = (
 				956C320B1523BB6B00F0632C /* Sources */,
 				956C320C1523BB6B00F0632C /* Frameworks */,
@@ -250,9 +250,9 @@
 			);
 			dependencies = (
 			);
-			name = andor3;
+			name = "vieworks-vp";
 			productName = andor3;
-			productReference = 956C320F1523BB6B00F0632C /* andor3.dylib */;
+			productReference = 956C320F1523BB6B00F0632C /* vieworks-vp.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -264,7 +264,7 @@
 				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = IPANEMA;
 			};
-			buildConfigurationList = 95B6658514E983F900A8C6FC /* Build configuration list for PBXProject "andor3_plugin" */;
+			buildConfigurationList = 95B6658514E983F900A8C6FC /* Build configuration list for PBXProject "vieworks-vp_pluggin" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -276,7 +276,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				956C320E1523BB6B00F0632C /* andor3 */,
+				956C320E1523BB6B00F0632C /* vieworks-vp */,
 			);
 		};
 /* End PBXProject section */
@@ -286,12 +286,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				958C874417B65DC9003B74B2 /* Andor3Camera.cpp in Sources */,
-				958C874517B65DC9003B74B2 /* Andor3DetInfoCtrlObj.cpp in Sources */,
-				958C874617B65DC9003B74B2 /* Andor3Interface.cpp in Sources */,
-				958C874717B65DC9003B74B2 /* Andor3SyncCtrlObj.cpp in Sources */,
-				95E42AFA181DBB4D0090742A /* Andor3BinCtrlObj.cpp in Sources */,
-				95E42AFB181DBB4D0090742A /* Andor3RoiCtrlObj.cpp in Sources */,
+				958C874417B65DC9003B74B2 /* VieworksVPCamera.cpp in Sources */,
+				958C874517B65DC9003B74B2 /* VieworksVPDetInfoCtrlObj.cpp in Sources */,
+				958C874617B65DC9003B74B2 /* VieworksVPInterface.cpp in Sources */,
+				958C874717B65DC9003B74B2 /* VieworksVPSyncCtrlObj.cpp in Sources */,
+				95E42AFA181DBB4D0090742A /* VieworksVPBinCtrlObj.cpp in Sources */,
+				95E42AFB181DBB4D0090742A /* VieworksVPRoiCtrlObj.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,10 +319,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../andor3-tests/andor-include\"",
+					"\"$(SRCROOT)/include\"",
+					"\"$(SRCROOT)/../common/siso-me4/include\"",
 					"\"$(SRCROOT)/../../common/include\"",
 					"\"$(SRCROOT)/../../hardware/include\"",
-					"\"$(SRCROOT)/include\"",
+					"\"$(SRCROOT)/../../../SiSo-SDK/include\"",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -353,10 +354,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../andor3-tests/andor-include\"",
+					"\"$(SRCROOT)/include\"",
+					"\"$(SRCROOT)/../common/siso-me4/include\"",
 					"\"$(SRCROOT)/../../common/include\"",
 					"\"$(SRCROOT)/../../hardware/include\"",
-					"\"$(SRCROOT)/include\"",
+					"\"$(SRCROOT)/../../../SiSo-SDK/include\"",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -386,7 +388,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		956C321C1523BB6C00F0632C /* Build configuration list for PBXNativeTarget "andor3" */ = {
+		956C321C1523BB6C00F0632C /* Build configuration list for PBXNativeTarget "vieworks-vp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				956C321A1523BB6C00F0632C /* Debug */,
@@ -395,7 +397,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95B6658514E983F900A8C6FC /* Build configuration list for PBXProject "andor3_plugin" */ = {
+		95B6658514E983F900A8C6FC /* Build configuration list for PBXProject "vieworks-vp_pluggin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95B6658714E983F900A8C6FC /* Debug */,
