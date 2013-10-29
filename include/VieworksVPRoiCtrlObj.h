@@ -1,5 +1,5 @@
-#ifndef ANDOR3ROICTRLOBJ_H
-#define ANDOR3ROICTRLOBJ_H
+#ifndef VIEWORKSVPROICTRLOBJ_H
+#define VIEWORKSVPROICTRLOBJ_H
 
 /* vieworks-vp plugin ROI class
  * Copyright (C) 2013 IPANEMA USR3461, CNRS/MCC.
@@ -20,7 +20,7 @@
  */
 
 #include "HwInterface.h"
-#include "Andor3Camera.h"
+#include "VieworksVPCamera.h"
 
 namespace lima
 {
@@ -53,5 +53,5 @@ namespace lima
   } // namespace VieworksVP
 } // namespace lima
 
-#endif // ANDOR3ROICTRLOBJ_H
+#endif // VIEWORKSVPROICTRLOBJ_H
 

@@ -20,7 +20,7 @@ namespace VieworksVP
   class Interface : HwInterface
   {
 %TypeHeaderCode
-#include <Andor3Interface.h>
+#include <VieworksVPInterface.h>
 %End
   public:
     Interface(VieworksVP::Camera& cam /In/ );

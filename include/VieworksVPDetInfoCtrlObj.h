@@ -1,5 +1,5 @@
-#ifndef ANDOR3DETINFOCTRLOBJ_H
-#define ANDOR3DETINFOCTRLOBJ_H
+#ifndef VIEWORKSVPDETINFOCTRLOBJ_H
+#define VIEWORKSVPDETINFOCTRLOBJ_H
 
 /* vieworks-vp plugin detector information class
  * Copyright (C) 2013 IPANEMA USR3461, CNRS/MCC.
@@ -27,7 +27,7 @@
 #include "HwInterface.h"
 
 // VieworksVP plugin headers :
-#include "Andor3Camera.h"
+#include "VieworksVPCamera.h"
 
 namespace lima
 {
@@ -69,7 +69,7 @@ namespace lima
 } // namespace lima
 
 
-#endif  /* ANDOR3DETINFOCTRLOBJ_H */
+#endif  /* VIEWORKSVPDETINFOCTRLOBJ_H */
 
 /*
  Local Variables:

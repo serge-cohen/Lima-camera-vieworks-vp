@@ -27,7 +27,7 @@
 // LImA headers :
 
 // VieworksVP plugin headers :
-#include "Andor3SyncCtrlObj.h"
+#include "VieworksVPSyncCtrlObj.h"
 
 
 //---------------------------

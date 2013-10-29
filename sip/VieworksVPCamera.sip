@@ -20,7 +20,7 @@ namespace VieworksVP
   class Camera /NoDefaultCtors/
   {
 %TypeHeaderCode
-#include <Andor3Camera.h>
+#include <VieworksVPCamera.h>
 %End
 
   public:

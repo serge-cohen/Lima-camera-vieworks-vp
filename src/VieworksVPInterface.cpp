@@ -27,7 +27,7 @@
 // LImA headers :
 
 // VieworksVP plugin headers :
-#include "Andor3Interface.h"
+#include "VieworksVPInterface.h"
 
 
 //---------------------------

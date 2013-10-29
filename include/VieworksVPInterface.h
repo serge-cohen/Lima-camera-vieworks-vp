@@ -1,5 +1,5 @@
-#ifndef ANDOR3INTERFACE_H
-#define ANDOR3INTERFACE_H
+#ifndef VIEWORKSVPINTERFACE_H
+#define VIEWORKSVPINTERFACE_H
 
 /* vieworks-vp plugin hardware interface class
  * Copyright (C) 2013 IPANEMA USR3461, CNRS/MCC.
@@ -27,11 +27,11 @@
 #include "HwInterface.h"
 
 // VieworksVP plugin headers :
-#include "Andor3Camera.h"
-#include "Andor3DetInfoCtrlObj.h"
-#include "Andor3SyncCtrlObj.h"
-#include "Andor3RoiCtrlObj.h"
-#include "Andor3BinCtrlObj.h"
+#include "VieworksVPCamera.h"
+#include "VieworksVPDetInfoCtrlObj.h"
+#include "VieworksVPSyncCtrlObj.h"
+#include "VieworksVPRoiCtrlObj.h"
+#include "VieworksVPBinCtrlObj.h"
 
 namespace lima
 {
@@ -47,7 +47,7 @@ namespace lima
     
     class Interface : public HwInterface
     {
-	    DEB_CLASS_NAMESPC(DebModCamera, "Andor3Interface", "VieworksVP");
+	    DEB_CLASS_NAMESPC(DebModCamera, "VieworksVPInterface", "VieworksVP");
       
     public:
 	    Interface(Camera& cam);
@@ -82,7 +82,7 @@ namespace lima
 } // namespace lima
 
 
-#endif  /* ANDOR3INTERFACE_H */
+#endif  /* VIEWORKSVPINTERFACE_H */
 
 /*
  Local Variables:

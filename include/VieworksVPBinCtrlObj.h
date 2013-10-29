@@ -1,5 +1,5 @@
-#ifndef ANDOR3BINCTRLOBJ_H
-#define ANDOR3BINCTRLOBJ_H
+#ifndef VIEWORKSVPBINCTRLOBJ_H
+#define VIEWORKSVPBINCTRLOBJ_H
 
 /* vieworks-vp plugin binning class
  * Copyright (C) 2013 IPANEMA USR3461, CNRS/MCC.
@@ -20,7 +20,7 @@
  */
 
 #include "HwInterface.h"
-#include "Andor3Camera.h"
+#include "VieworksVPCamera.h"
 
 namespace lima
 {
@@ -50,4 +50,4 @@ namespace lima
   } // namespace VieworksVP
 } // namespace lima
 
-#endif // ANDOR3BINCTRLOBJ_H
+#endif // VIEWORKSVPBINCTRLOBJ_H

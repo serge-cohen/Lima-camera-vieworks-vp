@@ -27,7 +27,7 @@
 // LImA headers :
 
 // VieworksVP plugin headers :
-#include "Andor3DetInfoCtrlObj.h"
+#include "VieworksVPDetInfoCtrlObj.h"
 
 
 //---------------------------

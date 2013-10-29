@@ -1,5 +1,5 @@
-#ifndef ANDOR3SYNCCTRLOBJ_H
-#define ANDOR3SYNCCTRLOBJ_H
+#ifndef VIEWORKSVPSYNCCTRLOBJ_H
+#define VIEWORKSVPSYNCCTRLOBJ_H
 
 /* vieworks-vp plugin synchronisation information class
  * Copyright (C) 2013 IPANEMA USR3461, CNRS/MCC.
@@ -27,7 +27,7 @@
 #include "HwSyncCtrlObj.h"
 
 // VieworksVP plugin headers :
-#include "Andor3Camera.h"
+#include "VieworksVPCamera.h"
 
 namespace lima
 {
@@ -71,7 +71,7 @@ namespace lima
 } // namespace lima
 
 
-#endif  /* ANDOR3SYNCCTRLOBJ_H */
+#endif  /* VIEWORKSVPSYNCCTRLOBJ_H */
 
 /*
  Local Variables:

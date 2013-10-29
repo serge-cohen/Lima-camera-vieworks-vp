@@ -16,7 +16,7 @@
  * License along with this file. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Andor3BinCtrlObj.h"
+#include "VieworksVPBinCtrlObj.h"
 
 //-----------------------------------------------------
 // @brief

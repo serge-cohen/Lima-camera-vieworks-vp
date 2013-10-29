@@ -27,7 +27,7 @@
 // LImA headers :
 
 // VieworksVP plugin headers :
-#include "Andor3Camera.h"
+#include "VieworksVPCamera.h"
 
 
 // Defining the parameter names of the vieworks-vp SDK :
@@ -89,7 +89,7 @@ m_temperature_sp(5.0)
 {
   DEB_CONSTRUCTOR();
   // Initing the maps that serves for error string generation :
-  _mapAndor3Error();
+  _mapVieworksVPError();
   
   // Initialisation of the atcore library :
   if ( ! sAndorSDK3Initted ) {
@@ -1545,7 +1545,7 @@ lima::VieworksVP::Camera::andor3Error(int code) const
 // @brief just build a map of error codes
 //-----------------------------------------------------
 void
-lima::VieworksVP::Camera::_mapAndor3Error()
+lima::VieworksVP::Camera::_mapVieworksVPError()
 {
   m_andor3_error_maps[AT_SUCCESS] = "'AT_SUCCESS' : Function call has been successful";
   m_andor3_error_maps[AT_ERR_NOTINITIALISED] = "'AT_ERR_NOTINITIALISED' : Function called with an uninitialised handle";
