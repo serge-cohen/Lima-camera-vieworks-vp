@@ -53,8 +53,7 @@ namespace lima
       
       enum Status { Ready, Exposure, Readout, Latency, Fault };
 
-      //! @TODO : later on should do a map (string to int and vice-versa) from parsed enum info for the next 3 :
-      // In the same order/index as "PreAmpGainControl"
+      // Enum representing the entry possible for gti/sti (test image)
       enum VP_test_image { Off=0, Fixed1=1, Fixed2=2, Moving=3 };
       
       Camera(const std::string& bitflow_path, int camera_number=0);
