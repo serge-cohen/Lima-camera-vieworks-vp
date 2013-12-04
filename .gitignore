@@ -22,4 +22,5 @@ build/
 .AppleDouble
 *.o
 vieworks-vp.xcodeproj/project.xcworkspace/xcuserdata/serge.xcuserdatad/WorkspaceSettings.xcsettings
+vieworks-vp.xcodeproj/project.xcworkspace/xcshareddata/
 vieworks-vp.xcodeproj/xcuserdata/
