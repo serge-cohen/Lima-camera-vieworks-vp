@@ -7,22 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		95AD68A81828E1CC00FF8347 /* SiSoME4Grabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95AD68A71828E1CC00FF8347 /* SiSoME4Grabber.cpp */; };
-		95AD68AA1828E1D400FF8347 /* SiSoME4SerialLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95AD68A91828E1D400FF8347 /* SiSoME4SerialLine.cpp */; };
-		95AD68AC1828E1EB00FF8347 /* VieworksVPBinCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95AD68AB1828E1EB00FF8347 /* VieworksVPBinCtrlObj.cpp */; };
-		95AD68B21828E1FC00FF8347 /* VieworksVPCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95AD68AD1828E1FC00FF8347 /* VieworksVPCamera.cpp */; };
-		95AD68B31828E1FC00FF8347 /* VieworksVPDetInfoCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95AD68AE1828E1FC00FF8347 /* VieworksVPDetInfoCtrlObj.cpp */; };
-		95AD68B41828E1FC00FF8347 /* VieworksVPInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95AD68AF1828E1FC00FF8347 /* VieworksVPInterface.cpp */; };
-		95AD68B51828E1FC00FF8347 /* VieworksVPRoiCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95AD68B01828E1FC00FF8347 /* VieworksVPRoiCtrlObj.cpp */; };
-		95AD68B61828E1FC00FF8347 /* VieworksVPSyncCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95AD68B11828E1FC00FF8347 /* VieworksVPSyncCtrlObj.cpp */; };
-		95AD68BD1828E22200FF8347 /* VieworksVPBinCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95AD68B71828E22100FF8347 /* VieworksVPBinCtrlObj.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95AD68BE1828E22200FF8347 /* VieworksVPCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 95AD68B81828E22100FF8347 /* VieworksVPCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95AD68BF1828E22200FF8347 /* VieworksVPDetInfoCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95AD68B91828E22100FF8347 /* VieworksVPDetInfoCtrlObj.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95AD68C01828E22200FF8347 /* VieworksVPInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 95AD68BA1828E22100FF8347 /* VieworksVPInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95AD68C11828E22200FF8347 /* VieworksVPRoiCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95AD68BB1828E22100FF8347 /* VieworksVPRoiCtrlObj.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95AD68C21828E22200FF8347 /* VieworksVPSyncCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95AD68BC1828E22100FF8347 /* VieworksVPSyncCtrlObj.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95AD68C51828E22E00FF8347 /* SiSoME4Grabber.h in Headers */ = {isa = PBXBuildFile; fileRef = 95AD68C31828E22E00FF8347 /* SiSoME4Grabber.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95AD68C61828E22E00FF8347 /* SiSoME4SerialLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 95AD68C41828E22E00FF8347 /* SiSoME4SerialLine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95DE31C4184F1D9C0037403D /* SiSoME4Grabber.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31B9184F1D9C0037403D /* SiSoME4Grabber.h */; };
+		95DE31C5184F1D9C0037403D /* SiSoME4SerialLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31BA184F1D9C0037403D /* SiSoME4SerialLine.h */; };
+		95DE31C6184F1D9C0037403D /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31C0184F1D9C0037403D /* Makefile */; };
+		95DE31C7184F1D9C0037403D /* SiSoME4Grabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31C1184F1D9C0037403D /* SiSoME4Grabber.cpp */; };
+		95DE31C8184F1D9C0037403D /* SiSoME4SerialLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31C2184F1D9C0037403D /* SiSoME4SerialLine.cpp */; };
+		95DE31E6184F1E440037403D /* VieworksVPBinCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31CF184F1E440037403D /* VieworksVPBinCtrlObj.h */; };
+		95DE31E7184F1E440037403D /* VieworksVPCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31D0184F1E440037403D /* VieworksVPCamera.h */; };
+		95DE31E8184F1E440037403D /* VieworksVPDetInfoCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31D1184F1E440037403D /* VieworksVPDetInfoCtrlObj.h */; };
+		95DE31E9184F1E440037403D /* VieworksVPInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31D2184F1E440037403D /* VieworksVPInterface.h */; };
+		95DE31EA184F1E440037403D /* VieworksVPRoiCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31D3184F1E440037403D /* VieworksVPRoiCtrlObj.h */; };
+		95DE31EB184F1E440037403D /* VieworksVPSyncCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31D4184F1E440037403D /* VieworksVPSyncCtrlObj.h */; };
+		95DE31EC184F1E440037403D /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31D5184F1E440037403D /* Makefile */; };
+		95DE31ED184F1E440037403D /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31DE184F1E440037403D /* Makefile */; };
+		95DE31EE184F1E440037403D /* VieworksVPBinCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31DF184F1E440037403D /* VieworksVPBinCtrlObj.cpp */; };
+		95DE31EF184F1E440037403D /* VieworksVPCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31E0184F1E440037403D /* VieworksVPCamera.cpp */; };
+		95DE31F0184F1E440037403D /* VieworksVPDetInfoCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31E1184F1E440037403D /* VieworksVPDetInfoCtrlObj.cpp */; };
+		95DE31F1184F1E440037403D /* VieworksVPInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31E2184F1E440037403D /* VieworksVPInterface.cpp */; };
+		95DE31F2184F1E440037403D /* VieworksVPRoiCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31E3184F1E440037403D /* VieworksVPRoiCtrlObj.cpp */; };
+		95DE31F3184F1E440037403D /* VieworksVPSyncCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31E4184F1E440037403D /* VieworksVPSyncCtrlObj.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,40 +37,8 @@
 		95848CF6180D9EEB004B7C8A /* xh */ = {isa = PBXFileReference; lastKnownFileType = folder; name = xh; path = ../xh; sourceTree = "<group>"; };
 		95848CF7180D9F09004B7C8A /* pointgrey */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pointgrey; path = ../pointgrey; sourceTree = "<group>"; };
 		95848CF8180D9F34004B7C8A /* dexela */ = {isa = PBXFileReference; lastKnownFileType = folder; name = dexela; path = ../dexela; sourceTree = "<group>"; };
-		95AD688F18285A9900FF8347 /* doc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
-		95AD689018285A9900FF8347 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
-		95AD689118285A9900FF8347 /* python */ = {isa = PBXFileReference; lastKnownFileType = folder; path = python; sourceTree = "<group>"; };
-		95AD689218285A9900FF8347 /* sip */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sip; sourceTree = "<group>"; };
-		95AD689318285A9900FF8347 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
 		95AD689418285AA700FF8347 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		95AD689618285ADE00FF8347 /* AUTHORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
-		95AD689718285ADE00FF8347 /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
-		95AD689818285ADE00FF8347 /* doc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
-		95AD689918285ADE00FF8347 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
-		95AD689A18285ADE00FF8347 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		95AD689B18285ADE00FF8347 /* NEWS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NEWS; sourceTree = "<group>"; };
-		95AD689C18285ADE00FF8347 /* python */ = {isa = PBXFileReference; lastKnownFileType = folder; path = python; sourceTree = "<group>"; };
-		95AD689D18285ADE00FF8347 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
-		95AD689E18285ADE00FF8347 /* sip */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sip; sourceTree = "<group>"; };
-		95AD689F18285ADE00FF8347 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
-		95AD68A018285ADE00FF8347 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 		95AD68A21828607A00FF8347 /* andor3 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = andor3; path = ../andor3; sourceTree = "<group>"; };
-		95AD68A71828E1CC00FF8347 /* SiSoME4Grabber.cpp */ = {isa = PBXFileReference; lastKnownFileType = file; name = SiSoME4Grabber.cpp; path = "../common/siso-me4/src/SiSoME4Grabber.cpp"; sourceTree = "<group>"; };
-		95AD68A91828E1D400FF8347 /* SiSoME4SerialLine.cpp */ = {isa = PBXFileReference; lastKnownFileType = file; name = SiSoME4SerialLine.cpp; path = "../common/siso-me4/src/SiSoME4SerialLine.cpp"; sourceTree = "<group>"; };
-		95AD68AB1828E1EB00FF8347 /* VieworksVPBinCtrlObj.cpp */ = {isa = PBXFileReference; lastKnownFileType = file; name = VieworksVPBinCtrlObj.cpp; path = src/VieworksVPBinCtrlObj.cpp; sourceTree = "<group>"; };
-		95AD68AD1828E1FC00FF8347 /* VieworksVPCamera.cpp */ = {isa = PBXFileReference; lastKnownFileType = file; name = VieworksVPCamera.cpp; path = src/VieworksVPCamera.cpp; sourceTree = "<group>"; };
-		95AD68AE1828E1FC00FF8347 /* VieworksVPDetInfoCtrlObj.cpp */ = {isa = PBXFileReference; lastKnownFileType = file; name = VieworksVPDetInfoCtrlObj.cpp; path = src/VieworksVPDetInfoCtrlObj.cpp; sourceTree = "<group>"; };
-		95AD68AF1828E1FC00FF8347 /* VieworksVPInterface.cpp */ = {isa = PBXFileReference; lastKnownFileType = file; name = VieworksVPInterface.cpp; path = src/VieworksVPInterface.cpp; sourceTree = "<group>"; };
-		95AD68B01828E1FC00FF8347 /* VieworksVPRoiCtrlObj.cpp */ = {isa = PBXFileReference; lastKnownFileType = file; name = VieworksVPRoiCtrlObj.cpp; path = src/VieworksVPRoiCtrlObj.cpp; sourceTree = "<group>"; };
-		95AD68B11828E1FC00FF8347 /* VieworksVPSyncCtrlObj.cpp */ = {isa = PBXFileReference; lastKnownFileType = file; name = VieworksVPSyncCtrlObj.cpp; path = src/VieworksVPSyncCtrlObj.cpp; sourceTree = "<group>"; };
-		95AD68B71828E22100FF8347 /* VieworksVPBinCtrlObj.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = VieworksVPBinCtrlObj.h; path = include/VieworksVPBinCtrlObj.h; sourceTree = "<group>"; };
-		95AD68B81828E22100FF8347 /* VieworksVPCamera.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = VieworksVPCamera.h; path = include/VieworksVPCamera.h; sourceTree = "<group>"; };
-		95AD68B91828E22100FF8347 /* VieworksVPDetInfoCtrlObj.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = VieworksVPDetInfoCtrlObj.h; path = include/VieworksVPDetInfoCtrlObj.h; sourceTree = "<group>"; };
-		95AD68BA1828E22100FF8347 /* VieworksVPInterface.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = VieworksVPInterface.h; path = include/VieworksVPInterface.h; sourceTree = "<group>"; };
-		95AD68BB1828E22100FF8347 /* VieworksVPRoiCtrlObj.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = VieworksVPRoiCtrlObj.h; path = include/VieworksVPRoiCtrlObj.h; sourceTree = "<group>"; };
-		95AD68BC1828E22100FF8347 /* VieworksVPSyncCtrlObj.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = VieworksVPSyncCtrlObj.h; path = include/VieworksVPSyncCtrlObj.h; sourceTree = "<group>"; };
-		95AD68C31828E22E00FF8347 /* SiSoME4Grabber.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = SiSoME4Grabber.h; path = "../common/siso-me4/include/SiSoME4Grabber.h"; sourceTree = "<group>"; };
-		95AD68C41828E22E00FF8347 /* SiSoME4SerialLine.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = SiSoME4SerialLine.h; path = "../common/siso-me4/include/SiSoME4SerialLine.h"; sourceTree = "<group>"; };
 		95D5EA221526233B008221ED /* adsc */ = {isa = PBXFileReference; lastKnownFileType = folder; name = adsc; path = ../adsc; sourceTree = "<group>"; };
 		95D5EA231526233B008221ED /* andor */ = {isa = PBXFileReference; lastKnownFileType = folder; name = andor; path = ../andor; sourceTree = "<group>"; };
 		95D5EA241526233B008221ED /* basler */ = {isa = PBXFileReference; lastKnownFileType = folder; name = basler; path = ../basler; sourceTree = "<group>"; };
@@ -88,6 +59,39 @@
 		95D5EA4A1526245D008221ED /* sip */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sip; path = ../pco/sip; sourceTree = "<group>"; };
 		95D5EA4B1526245D008221ED /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../pco/src; sourceTree = "<group>"; };
 		95D5EA4C1526245D008221ED /* VERSION */ = {isa = PBXFileReference; lastKnownFileType = text; name = VERSION; path = ../pco/VERSION; sourceTree = "<group>"; };
+		95DE31B6184F1D9C0037403D /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		95DE31B9184F1D9C0037403D /* SiSoME4Grabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiSoME4Grabber.h; sourceTree = "<group>"; };
+		95DE31BA184F1D9C0037403D /* SiSoME4SerialLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiSoME4SerialLine.h; sourceTree = "<group>"; };
+		95DE31BB184F1D9C0037403D /* NEWS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NEWS; sourceTree = "<group>"; };
+		95DE31BD184F1D9C0037403D /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		95DE31C0184F1D9C0037403D /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		95DE31C1184F1D9C0037403D /* SiSoME4Grabber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SiSoME4Grabber.cpp; sourceTree = "<group>"; };
+		95DE31C2184F1D9C0037403D /* SiSoME4SerialLine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SiSoME4SerialLine.cpp; sourceTree = "<group>"; };
+		95DE31C3184F1D9C0037403D /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
+		95DE31C9184F1E440037403D /* AUTHORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
+		95DE31CA184F1E440037403D /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		95DE31CC184F1E440037403D /* index.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.rst; sourceTree = "<group>"; };
+		95DE31CD184F1E440037403D /* vieworks-VP_header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "vieworks-VP_header.jpg"; sourceTree = "<group>"; };
+		95DE31CF184F1E440037403D /* VieworksVPBinCtrlObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VieworksVPBinCtrlObj.h; sourceTree = "<group>"; };
+		95DE31D0184F1E440037403D /* VieworksVPCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VieworksVPCamera.h; sourceTree = "<group>"; };
+		95DE31D1184F1E440037403D /* VieworksVPDetInfoCtrlObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VieworksVPDetInfoCtrlObj.h; sourceTree = "<group>"; };
+		95DE31D2184F1E440037403D /* VieworksVPInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VieworksVPInterface.h; sourceTree = "<group>"; };
+		95DE31D3184F1E440037403D /* VieworksVPRoiCtrlObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VieworksVPRoiCtrlObj.h; sourceTree = "<group>"; };
+		95DE31D4184F1E440037403D /* VieworksVPSyncCtrlObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VieworksVPSyncCtrlObj.h; sourceTree = "<group>"; };
+		95DE31D5184F1E440037403D /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		95DE31D6184F1E440037403D /* NEWS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NEWS; sourceTree = "<group>"; };
+		95DE31D8184F1E440037403D /* __init__.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		95DE31D9184F1E440037403D /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		95DE31DB184F1E440037403D /* VieworksVPCamera.sip */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VieworksVPCamera.sip; sourceTree = "<group>"; };
+		95DE31DC184F1E440037403D /* VieworksVPInterface.sip */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VieworksVPInterface.sip; sourceTree = "<group>"; };
+		95DE31DE184F1E440037403D /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		95DE31DF184F1E440037403D /* VieworksVPBinCtrlObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VieworksVPBinCtrlObj.cpp; sourceTree = "<group>"; };
+		95DE31E0184F1E440037403D /* VieworksVPCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VieworksVPCamera.cpp; sourceTree = "<group>"; };
+		95DE31E1184F1E440037403D /* VieworksVPDetInfoCtrlObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VieworksVPDetInfoCtrlObj.cpp; sourceTree = "<group>"; };
+		95DE31E2184F1E440037403D /* VieworksVPInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VieworksVPInterface.cpp; sourceTree = "<group>"; };
+		95DE31E3184F1E440037403D /* VieworksVPRoiCtrlObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VieworksVPRoiCtrlObj.cpp; sourceTree = "<group>"; };
+		95DE31E4184F1E440037403D /* VieworksVPSyncCtrlObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VieworksVPSyncCtrlObj.cpp; sourceTree = "<group>"; };
+		95DE31E5184F1E440037403D /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,17 +144,17 @@
 		95AD688D18285A1400FF8347 /* vieworks-vp */ = {
 			isa = PBXGroup;
 			children = (
-				95AD689618285ADE00FF8347 /* AUTHORS */,
-				95AD689718285ADE00FF8347 /* COPYING */,
-				95AD689818285ADE00FF8347 /* doc */,
-				95AD689918285ADE00FF8347 /* include */,
-				95AD689A18285ADE00FF8347 /* Makefile */,
-				95AD689B18285ADE00FF8347 /* NEWS */,
-				95AD689C18285ADE00FF8347 /* python */,
-				95AD689D18285ADE00FF8347 /* README */,
-				95AD689E18285ADE00FF8347 /* sip */,
-				95AD689F18285ADE00FF8347 /* src */,
-				95AD68A018285ADE00FF8347 /* VERSION */,
+				95DE31D5184F1E440037403D /* Makefile */,
+				95DE31C9184F1E440037403D /* AUTHORS */,
+				95DE31CA184F1E440037403D /* COPYING */,
+				95DE31D6184F1E440037403D /* NEWS */,
+				95DE31D9184F1E440037403D /* README */,
+				95DE31E5184F1E440037403D /* VERSION */,
+				95DE31CB184F1E440037403D /* doc */,
+				95DE31CE184F1E440037403D /* include */,
+				95DE31D7184F1E440037403D /* python */,
+				95DE31DA184F1E440037403D /* sip */,
+				95DE31DD184F1E440037403D /* src */,
 			);
 			name = "vieworks-vp";
 			sourceTree = "<group>";
@@ -159,11 +163,15 @@
 			isa = PBXGroup;
 			children = (
 				95AD689418285AA700FF8347 /* Makefile */,
-				95AD688F18285A9900FF8347 /* doc */,
-				95AD689018285A9900FF8347 /* include */,
-				95AD689118285A9900FF8347 /* python */,
-				95AD689218285A9900FF8347 /* sip */,
-				95AD689318285A9900FF8347 /* src */,
+				95DE31B6184F1D9C0037403D /* COPYING */,
+				95DE31BB184F1D9C0037403D /* NEWS */,
+				95DE31BD184F1D9C0037403D /* README */,
+				95DE31C3184F1D9C0037403D /* VERSION */,
+				95DE31B7184F1D9C0037403D /* doc */,
+				95DE31B8184F1D9C0037403D /* include */,
+				95DE31BC184F1D9C0037403D /* python */,
+				95DE31BE184F1D9C0037403D /* sip */,
+				95DE31BF184F1D9C0037403D /* src */,
 			);
 			name = "siso-me4";
 			path = "../common/siso-me4";
@@ -172,22 +180,6 @@
 		95B6658014E983F900A8C6FC = {
 			isa = PBXGroup;
 			children = (
-				95AD68C31828E22E00FF8347 /* SiSoME4Grabber.h */,
-				95AD68C41828E22E00FF8347 /* SiSoME4SerialLine.h */,
-				95AD68B71828E22100FF8347 /* VieworksVPBinCtrlObj.h */,
-				95AD68B81828E22100FF8347 /* VieworksVPCamera.h */,
-				95AD68B91828E22100FF8347 /* VieworksVPDetInfoCtrlObj.h */,
-				95AD68BA1828E22100FF8347 /* VieworksVPInterface.h */,
-				95AD68BB1828E22100FF8347 /* VieworksVPRoiCtrlObj.h */,
-				95AD68BC1828E22100FF8347 /* VieworksVPSyncCtrlObj.h */,
-				95AD68AD1828E1FC00FF8347 /* VieworksVPCamera.cpp */,
-				95AD68AE1828E1FC00FF8347 /* VieworksVPDetInfoCtrlObj.cpp */,
-				95AD68AF1828E1FC00FF8347 /* VieworksVPInterface.cpp */,
-				95AD68B01828E1FC00FF8347 /* VieworksVPRoiCtrlObj.cpp */,
-				95AD68B11828E1FC00FF8347 /* VieworksVPSyncCtrlObj.cpp */,
-				95AD68AB1828E1EB00FF8347 /* VieworksVPBinCtrlObj.cpp */,
-				95AD68A91828E1D400FF8347 /* SiSoME4SerialLine.cpp */,
-				95AD68A71828E1CC00FF8347 /* SiSoME4Grabber.cpp */,
 				95D5EA1D1526230A008221ED /* LIMA-other */,
 				956B30DD152621ED00FB4D2D /* Other Cameras */,
 				95AD688E18285A4E00FF8347 /* siso-me4 */,
@@ -218,6 +210,99 @@
 			name = pco;
 			sourceTree = "<group>";
 		};
+		95DE31B7184F1D9C0037403D /* doc */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = doc;
+			sourceTree = "<group>";
+		};
+		95DE31B8184F1D9C0037403D /* include */ = {
+			isa = PBXGroup;
+			children = (
+				95DE31B9184F1D9C0037403D /* SiSoME4Grabber.h */,
+				95DE31BA184F1D9C0037403D /* SiSoME4SerialLine.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		95DE31BC184F1D9C0037403D /* python */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = python;
+			sourceTree = "<group>";
+		};
+		95DE31BE184F1D9C0037403D /* sip */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = sip;
+			sourceTree = "<group>";
+		};
+		95DE31BF184F1D9C0037403D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				95DE31C0184F1D9C0037403D /* Makefile */,
+				95DE31C1184F1D9C0037403D /* SiSoME4Grabber.cpp */,
+				95DE31C2184F1D9C0037403D /* SiSoME4SerialLine.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		95DE31CB184F1E440037403D /* doc */ = {
+			isa = PBXGroup;
+			children = (
+				95DE31CC184F1E440037403D /* index.rst */,
+				95DE31CD184F1E440037403D /* vieworks-VP_header.jpg */,
+			);
+			path = doc;
+			sourceTree = "<group>";
+		};
+		95DE31CE184F1E440037403D /* include */ = {
+			isa = PBXGroup;
+			children = (
+				95DE31CF184F1E440037403D /* VieworksVPBinCtrlObj.h */,
+				95DE31D0184F1E440037403D /* VieworksVPCamera.h */,
+				95DE31D1184F1E440037403D /* VieworksVPDetInfoCtrlObj.h */,
+				95DE31D2184F1E440037403D /* VieworksVPInterface.h */,
+				95DE31D3184F1E440037403D /* VieworksVPRoiCtrlObj.h */,
+				95DE31D4184F1E440037403D /* VieworksVPSyncCtrlObj.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		95DE31D7184F1E440037403D /* python */ = {
+			isa = PBXGroup;
+			children = (
+				95DE31D8184F1E440037403D /* __init__.py */,
+			);
+			path = python;
+			sourceTree = "<group>";
+		};
+		95DE31DA184F1E440037403D /* sip */ = {
+			isa = PBXGroup;
+			children = (
+				95DE31DB184F1E440037403D /* VieworksVPCamera.sip */,
+				95DE31DC184F1E440037403D /* VieworksVPInterface.sip */,
+			);
+			path = sip;
+			sourceTree = "<group>";
+		};
+		95DE31DD184F1E440037403D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				95DE31DE184F1E440037403D /* Makefile */,
+				95DE31DF184F1E440037403D /* VieworksVPBinCtrlObj.cpp */,
+				95DE31E0184F1E440037403D /* VieworksVPCamera.cpp */,
+				95DE31E1184F1E440037403D /* VieworksVPDetInfoCtrlObj.cpp */,
+				95DE31E2184F1E440037403D /* VieworksVPInterface.cpp */,
+				95DE31E3184F1E440037403D /* VieworksVPRoiCtrlObj.cpp */,
+				95DE31E4184F1E440037403D /* VieworksVPSyncCtrlObj.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -225,14 +310,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95AD68C51828E22E00FF8347 /* SiSoME4Grabber.h in Headers */,
-				95AD68C61828E22E00FF8347 /* SiSoME4SerialLine.h in Headers */,
-				95AD68BD1828E22200FF8347 /* VieworksVPBinCtrlObj.h in Headers */,
-				95AD68BE1828E22200FF8347 /* VieworksVPCamera.h in Headers */,
-				95AD68BF1828E22200FF8347 /* VieworksVPDetInfoCtrlObj.h in Headers */,
-				95AD68C01828E22200FF8347 /* VieworksVPInterface.h in Headers */,
-				95AD68C11828E22200FF8347 /* VieworksVPRoiCtrlObj.h in Headers */,
-				95AD68C21828E22200FF8347 /* VieworksVPSyncCtrlObj.h in Headers */,
+				95DE31E6184F1E440037403D /* VieworksVPBinCtrlObj.h in Headers */,
+				95DE31E9184F1E440037403D /* VieworksVPInterface.h in Headers */,
+				95DE31E7184F1E440037403D /* VieworksVPCamera.h in Headers */,
+				95DE31C4184F1D9C0037403D /* SiSoME4Grabber.h in Headers */,
+				95DE31EB184F1E440037403D /* VieworksVPSyncCtrlObj.h in Headers */,
+				95DE31C5184F1D9C0037403D /* SiSoME4SerialLine.h in Headers */,
+				95DE31E8184F1E440037403D /* VieworksVPDetInfoCtrlObj.h in Headers */,
+				95DE31EA184F1E440037403D /* VieworksVPRoiCtrlObj.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,14 +372,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95AD68A81828E1CC00FF8347 /* SiSoME4Grabber.cpp in Sources */,
-				95AD68AA1828E1D400FF8347 /* SiSoME4SerialLine.cpp in Sources */,
-				95AD68AC1828E1EB00FF8347 /* VieworksVPBinCtrlObj.cpp in Sources */,
-				95AD68B21828E1FC00FF8347 /* VieworksVPCamera.cpp in Sources */,
-				95AD68B31828E1FC00FF8347 /* VieworksVPDetInfoCtrlObj.cpp in Sources */,
-				95AD68B41828E1FC00FF8347 /* VieworksVPInterface.cpp in Sources */,
-				95AD68B51828E1FC00FF8347 /* VieworksVPRoiCtrlObj.cpp in Sources */,
-				95AD68B61828E1FC00FF8347 /* VieworksVPSyncCtrlObj.cpp in Sources */,
+				95DE31EE184F1E440037403D /* VieworksVPBinCtrlObj.cpp in Sources */,
+				95DE31C6184F1D9C0037403D /* Makefile in Sources */,
+				95DE31C8184F1D9C0037403D /* SiSoME4SerialLine.cpp in Sources */,
+				95DE31F3184F1E440037403D /* VieworksVPSyncCtrlObj.cpp in Sources */,
+				95DE31F0184F1E440037403D /* VieworksVPDetInfoCtrlObj.cpp in Sources */,
+				95DE31C7184F1D9C0037403D /* SiSoME4Grabber.cpp in Sources */,
+				95DE31EC184F1E440037403D /* Makefile in Sources */,
+				95DE31F2184F1E440037403D /* VieworksVPRoiCtrlObj.cpp in Sources */,
+				95DE31F1184F1E440037403D /* VieworksVPInterface.cpp in Sources */,
+				95DE31ED184F1E440037403D /* Makefile in Sources */,
+				95DE31EF184F1E440037403D /* VieworksVPCamera.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
