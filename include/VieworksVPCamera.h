@@ -30,7 +30,6 @@
 #include <ostream>
 
 // Camera SDK headers :
-#include <atcore.h>
 
 // LImA headers :
 #include "HwMaxImageSizeCallback.h"
@@ -55,6 +54,12 @@ namespace lima
 
       // Enum representing the entry possible for gti/sti (test image)
       enum VP_test_image { Off=0, Fixed1=1, Fixed2=2, Moving=3 };
+      enum VP_data_bits {VP_8bits=8, VP_10bits=10, VP_12bits=12};
+      enum VP_LUT_control {VP_no_lut=0, VP_lut_1=1, VP_lut_2=2};
+      enum VP_trigger_mode {VP_free_run=0, VP_std_mode=1, VP_fast_mode=2, VP_double_mode=3, VP_overlap_mode=4};
+      enum VP_exp_source {VP_camera=0, VP_pulse_width=1};
+      enum VP_trigger_source {VP_CC1=1, VP_external=2};
+      enum VP_pixel_clock {VP_30MHz_pclk=0, VP_40MHz_pclk=1};
       
       Camera(const std::string& bitflow_path, int camera_number=0);
       ~Camera();
@@ -118,13 +123,67 @@ namespace lima
       // -- vieworks-vp specific, LIMA don't worry about it !
       void initialiseController();
 
-      void setTemperatureSP(double temp);  // à exporter (avec le get)
-      void getTemperatureSP(double& temp);
-      void getTemperature(double& temp);   // à exporter (read-only)
-      void setCooler(bool flag);					 // à exporter (avec le get)
-      void getCooler(bool& flag);
-      void getCoolingStatus(std::string& status);  // à exporter (read-only)
-
+      void setTestImage(VP_test_image i_test_image);
+      void getTestImage(VP_test_image &o_test_image) const;
+      void setDataBits(VP_data_bits i_data_bits);
+      void getDataBits(VP_data_bits &o_data_bits) const;
+      void setLUTcontrol(VP_LUT_control i_lut);
+      void getLUTcontrol(VP_LUT_control &o_lut) const;
+      void setAsynchronousReset(bool i_AR);
+      void getAsynchronousReset(bool &o_AR) const;
+      void setFlatFieldCorrection(bool i_FFC);
+      void getFlatFieldCorrection(bool &o_FFC) const;
+      void setDefectCorrection(bool i_DC);
+      void getDefectCorrection(bool &o_DC) const;
+      void setImageInvert(bool i_II);
+      void getImageInvert(bool &o_II) const;
+      void setHorizontalFlip(bool i_HF);
+      void getHorizontalFlip(bool &o_HF) const;
+      void setTrigger(VP_trigger_mode i_trig);
+      void getTrigger(VP_trigger_mode &o_trig) const;
+      void setExpSource(VP_exp_source i_exp_src);
+      void getExpSource(VP_exp_source &o_exp_src) const;
+      void setTriggerSource(VP_trigger_source i_trig_src);
+      void getTriggerSource(VP_trigger_source &o_trig_src) const;
+      void setTriggerPolarity(bool i_pol);
+      void getTriggerPolaroty(bool &o_pol) const;
+      void setExpMusTime(unsigned int i_time);
+      void getExpMusTime(unsigned int &o_time) const;
+      void setStrobeOffsetMus(unsigned int i_time);
+      void getStrobeOffsetMus(unsigned int &o_time) const;
+      void setStrobePolarity(bool i_pol);
+      void getStrobePolaroty(bool &o_pol) const;
+      void setAnalogGain(unsigned short i_gain);
+      void getAnalogGain(unsigned short &o_gain) const;
+      void setAnalogOffset(unsigned char i_off);
+      void getAnalogOffset(unsigned char &o_off) const;
+      void setFlatFieldIteration(unsigned char i_iter);
+      void getFlatFieldIteration(unsigned char &o_iter) const;
+      void setFlatFieldOffset(unsigned short i_off);
+      void getFlatFieldOffset(unsigned short &o_off) const;
+      
+      void setTemperatureSP(int i_temp);
+      void getTemperatureSP(int &o_temp) const;
+      void setPixelClock(VP_pixel_clock i_clk);
+      void getPixelClock(VP_pixel_clock &o_clk) const;
+      void setFanStatus(bool i_bootl);
+      void getFanStatus(bool &o_bool) const;
+      void setPeltierControl(bool i_bootl);
+      void getPeltierControl(bool &o_bool) const;
+      
+      void getMCUversion(std::string &o_string) const;
+      void getModelNumber(std::string &o_string) const;
+      void getFPGAversion(std::string &o_string) const;
+      void getSerialNumber(std::string &o_string) const;
+      void getCurrentTemperature(double &o_temp) const;
+      void getSensorTemperature(double &o_temp) const;
+      
+      void setOneParam(std::string i_name, std::string i_value1);
+      void setTwoParam(std::string i_name, std::string i_value1, std::string i_value2);
+      void getOneParam(std::string i_name, std::string &o_value1) const;
+      void getTwoParam(std::string i_name, std::string &o_value1, std::string &o_value2) const;
+      void command(std::string i_name);
+      
     private:
       // -- some internals :
       // Stopping an acquisition, iForce : without waiting the end of frame buffer retrieval by m_acq_thread
@@ -139,21 +198,6 @@ namespace lima
       class _AcqThread;
       friend class _AcqThread;
 
-      // -- Members
-      // LIMA / Acquisition (thread) related :
-      SoftBufferCtrlObj						m_buffer_ctrl_obj;
-      // Pure thread and signals :
-      _AcqThread*                 m_acq_thread;						// The thread retieving frame buffers from the SDK
-      Cond                        m_cond;									// Waiting condition for inter thread signaling
-      volatile bool								m_acq_thread_waiting;   // The m_acq_thread is waiting (main uses it to tell it to stop waiting)
-      volatile bool								m_acq_thread_running;		// The m_acq_thread is running (main uses it to accept stopAcq)
-      volatile bool								m_acq_thread_should_quit; // The main thread signals to m_acq_thread that it should quit.
-
-      // A bit more general :
-      size_t											m_nb_frames_to_collect; // The number of frames to collect in current sequence
-      size_t											m_image_index;					// The index in the current sequence of the next image to retrieve
-      bool												m_buffer_ringing;				// Should the buffer be considered as a ring buffer rather than a single use buffer.
-      Status											m_status;								// The current status of the camera
       
       // LIMA / Not directly acquisition related :
       std::string                 m_detector_model;
@@ -165,7 +209,6 @@ namespace lima
       // -- vieworks-vp SDK stuff
       bool                        m_cooler;
       double                      m_temperature_sp;
-      std::map<int, std::string>  m_andor3_error_maps;
 
       static bool						s_SDK_initted;
     };

@@ -7,19 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		95DE31C4184F1D9C0037403D /* SiSoME4Grabber.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31B9184F1D9C0037403D /* SiSoME4Grabber.h */; };
-		95DE31C5184F1D9C0037403D /* SiSoME4SerialLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31BA184F1D9C0037403D /* SiSoME4SerialLine.h */; };
-		95DE31C6184F1D9C0037403D /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31C0184F1D9C0037403D /* Makefile */; };
+		95DE31C4184F1D9C0037403D /* SiSoME4Grabber.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31B9184F1D9C0037403D /* SiSoME4Grabber.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95DE31C5184F1D9C0037403D /* SiSoME4SerialLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31BA184F1D9C0037403D /* SiSoME4SerialLine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95DE31C7184F1D9C0037403D /* SiSoME4Grabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31C1184F1D9C0037403D /* SiSoME4Grabber.cpp */; };
 		95DE31C8184F1D9C0037403D /* SiSoME4SerialLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31C2184F1D9C0037403D /* SiSoME4SerialLine.cpp */; };
-		95DE31E6184F1E440037403D /* VieworksVPBinCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31CF184F1E440037403D /* VieworksVPBinCtrlObj.h */; };
-		95DE31E7184F1E440037403D /* VieworksVPCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31D0184F1E440037403D /* VieworksVPCamera.h */; };
-		95DE31E8184F1E440037403D /* VieworksVPDetInfoCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31D1184F1E440037403D /* VieworksVPDetInfoCtrlObj.h */; };
-		95DE31E9184F1E440037403D /* VieworksVPInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31D2184F1E440037403D /* VieworksVPInterface.h */; };
-		95DE31EA184F1E440037403D /* VieworksVPRoiCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31D3184F1E440037403D /* VieworksVPRoiCtrlObj.h */; };
-		95DE31EB184F1E440037403D /* VieworksVPSyncCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31D4184F1E440037403D /* VieworksVPSyncCtrlObj.h */; };
-		95DE31EC184F1E440037403D /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31D5184F1E440037403D /* Makefile */; };
-		95DE31ED184F1E440037403D /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31DE184F1E440037403D /* Makefile */; };
+		95DE31E6184F1E440037403D /* VieworksVPBinCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31CF184F1E440037403D /* VieworksVPBinCtrlObj.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95DE31E7184F1E440037403D /* VieworksVPCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31D0184F1E440037403D /* VieworksVPCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95DE31E8184F1E440037403D /* VieworksVPDetInfoCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31D1184F1E440037403D /* VieworksVPDetInfoCtrlObj.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95DE31E9184F1E440037403D /* VieworksVPInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31D2184F1E440037403D /* VieworksVPInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95DE31EA184F1E440037403D /* VieworksVPRoiCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31D3184F1E440037403D /* VieworksVPRoiCtrlObj.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95DE31EB184F1E440037403D /* VieworksVPSyncCtrlObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE31D4184F1E440037403D /* VieworksVPSyncCtrlObj.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95DE31EE184F1E440037403D /* VieworksVPBinCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31DF184F1E440037403D /* VieworksVPBinCtrlObj.cpp */; };
 		95DE31EF184F1E440037403D /* VieworksVPCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31E0184F1E440037403D /* VieworksVPCamera.cpp */; };
 		95DE31F0184F1E440037403D /* VieworksVPDetInfoCtrlObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95DE31E1184F1E440037403D /* VieworksVPDetInfoCtrlObj.cpp */; };
@@ -39,6 +36,35 @@
 		95848CF8180D9F34004B7C8A /* dexela */ = {isa = PBXFileReference; lastKnownFileType = folder; name = dexela; path = ../dexela; sourceTree = "<group>"; };
 		95AD689418285AA700FF8347 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		95AD68A21828607A00FF8347 /* andor3 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = andor3; path = ../andor3; sourceTree = "<group>"; };
+		95B42E3018545CF900FECA37 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		95B42E3118545CF900FECA37 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		95B42E3218545CF900FECA37 /* VERSION */ = {isa = PBXFileReference; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
+		95B42E3418545CF900FECA37 /* Espia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Espia.h; sourceTree = "<group>"; };
+		95B42E3518545CF900FECA37 /* EspiaAcq.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EspiaAcq.h; sourceTree = "<group>"; };
+		95B42E3618545CF900FECA37 /* EspiaBufferMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EspiaBufferMgr.h; sourceTree = "<group>"; };
+		95B42E3718545CF900FECA37 /* EspiaDev.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EspiaDev.h; sourceTree = "<group>"; };
+		95B42E3818545CF900FECA37 /* EspiaFocla.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EspiaFocla.h; sourceTree = "<group>"; };
+		95B42E3918545CF900FECA37 /* EspiaSerialLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EspiaSerialLine.h; sourceTree = "<group>"; };
+		95B42E3A18545CF900FECA37 /* FoclaHwInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoclaHwInterface.h; sourceTree = "<group>"; };
+		95B42E3B18545CF900FECA37 /* espia.inc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.pascal; path = espia.inc; sourceTree = "<group>"; };
+		95B42E3D18545CF900FECA37 /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		95B42E3F18545CF900FECA37 /* Espia.sip */ = {isa = PBXFileReference; lastKnownFileType = text; path = Espia.sip; sourceTree = "<group>"; };
+		95B42E4018545CF900FECA37 /* EspiaAcq.sip */ = {isa = PBXFileReference; lastKnownFileType = text; path = EspiaAcq.sip; sourceTree = "<group>"; };
+		95B42E4118545CF900FECA37 /* EspiaBufferMgr.sip */ = {isa = PBXFileReference; lastKnownFileType = text; path = EspiaBufferMgr.sip; sourceTree = "<group>"; };
+		95B42E4218545CF900FECA37 /* EspiaDev.sip */ = {isa = PBXFileReference; lastKnownFileType = text; path = EspiaDev.sip; sourceTree = "<group>"; };
+		95B42E4318545CF900FECA37 /* EspiaSerialLine.sip */ = {isa = PBXFileReference; lastKnownFileType = text; path = EspiaSerialLine.sip; sourceTree = "<group>"; };
+		95B42E4518545CF900FECA37 /* Espia.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Espia.cpp; sourceTree = "<group>"; };
+		95B42E4618545CF900FECA37 /* EspiaAcq.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EspiaAcq.cpp; sourceTree = "<group>"; };
+		95B42E4718545CF900FECA37 /* EspiaBufferMgr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EspiaBufferMgr.cpp; sourceTree = "<group>"; };
+		95B42E4818545CF900FECA37 /* EspiaDev.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EspiaDev.cpp; sourceTree = "<group>"; };
+		95B42E4918545CF900FECA37 /* EspiaFocla.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EspiaFocla.cpp; sourceTree = "<group>"; };
+		95B42E4A18545CF900FECA37 /* EspiaSerialLine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EspiaSerialLine.cpp; sourceTree = "<group>"; };
+		95B42E4B18545CF900FECA37 /* FoclaHwInterface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FoclaHwInterface.cpp; sourceTree = "<group>"; };
+		95B42E4C18545CF900FECA37 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		95B42E4E18545CF900FECA37 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		95B42E4F18545CF900FECA37 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		95B42E5018545CF900FECA37 /* testfocla.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testfocla.cpp; sourceTree = "<group>"; };
+		95B42E5118545CF900FECA37 /* testfoclahwinterface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testfoclahwinterface.cpp; sourceTree = "<group>"; };
 		95D5EA221526233B008221ED /* adsc */ = {isa = PBXFileReference; lastKnownFileType = folder; name = adsc; path = ../adsc; sourceTree = "<group>"; };
 		95D5EA231526233B008221ED /* andor */ = {isa = PBXFileReference; lastKnownFileType = folder; name = andor; path = ../andor; sourceTree = "<group>"; };
 		95D5EA241526233B008221ED /* basler */ = {isa = PBXFileReference; lastKnownFileType = folder; name = basler; path = ../basler; sourceTree = "<group>"; };
@@ -108,6 +134,7 @@
 		956B30DD152621ED00FB4D2D /* Other Cameras */ = {
 			isa = PBXGroup;
 			children = (
+				95B42E2F18545CF900FECA37 /* espia */,
 				95D5EA221526233B008221ED /* adsc */,
 				95D5EA231526233B008221ED /* andor */,
 				95AD68A21828607A00FF8347 /* andor3 */,
@@ -175,6 +202,83 @@
 			);
 			name = "siso-me4";
 			path = "../common/siso-me4";
+			sourceTree = "<group>";
+		};
+		95B42E2F18545CF900FECA37 /* espia */ = {
+			isa = PBXGroup;
+			children = (
+				95B42E3018545CF900FECA37 /* .gitignore */,
+				95B42E3118545CF900FECA37 /* Makefile */,
+				95B42E3218545CF900FECA37 /* VERSION */,
+				95B42E3318545CF900FECA37 /* include */,
+				95B42E3C18545CF900FECA37 /* python */,
+				95B42E3E18545CF900FECA37 /* sip */,
+				95B42E4418545CF900FECA37 /* src */,
+				95B42E4D18545CF900FECA37 /* test */,
+			);
+			name = espia;
+			path = ../common/espia;
+			sourceTree = "<group>";
+		};
+		95B42E3318545CF900FECA37 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				95B42E3418545CF900FECA37 /* Espia.h */,
+				95B42E3518545CF900FECA37 /* EspiaAcq.h */,
+				95B42E3618545CF900FECA37 /* EspiaBufferMgr.h */,
+				95B42E3718545CF900FECA37 /* EspiaDev.h */,
+				95B42E3818545CF900FECA37 /* EspiaFocla.h */,
+				95B42E3918545CF900FECA37 /* EspiaSerialLine.h */,
+				95B42E3A18545CF900FECA37 /* FoclaHwInterface.h */,
+				95B42E3B18545CF900FECA37 /* espia.inc */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		95B42E3C18545CF900FECA37 /* python */ = {
+			isa = PBXGroup;
+			children = (
+				95B42E3D18545CF900FECA37 /* __init__.py */,
+			);
+			path = python;
+			sourceTree = "<group>";
+		};
+		95B42E3E18545CF900FECA37 /* sip */ = {
+			isa = PBXGroup;
+			children = (
+				95B42E3F18545CF900FECA37 /* Espia.sip */,
+				95B42E4018545CF900FECA37 /* EspiaAcq.sip */,
+				95B42E4118545CF900FECA37 /* EspiaBufferMgr.sip */,
+				95B42E4218545CF900FECA37 /* EspiaDev.sip */,
+				95B42E4318545CF900FECA37 /* EspiaSerialLine.sip */,
+			);
+			path = sip;
+			sourceTree = "<group>";
+		};
+		95B42E4418545CF900FECA37 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				95B42E4518545CF900FECA37 /* Espia.cpp */,
+				95B42E4618545CF900FECA37 /* EspiaAcq.cpp */,
+				95B42E4718545CF900FECA37 /* EspiaBufferMgr.cpp */,
+				95B42E4818545CF900FECA37 /* EspiaDev.cpp */,
+				95B42E4918545CF900FECA37 /* EspiaFocla.cpp */,
+				95B42E4A18545CF900FECA37 /* EspiaSerialLine.cpp */,
+				95B42E4B18545CF900FECA37 /* FoclaHwInterface.cpp */,
+				95B42E4C18545CF900FECA37 /* Makefile */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		95B42E4D18545CF900FECA37 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				95B42E4E18545CF900FECA37 /* .gitignore */,
+				95B42E4F18545CF900FECA37 /* Makefile */,
+				95B42E5018545CF900FECA37 /* testfocla.cpp */,
+				95B42E5118545CF900FECA37 /* testfoclahwinterface.cpp */,
+			);
+			path = test;
 			sourceTree = "<group>";
 		};
 		95B6658014E983F900A8C6FC = {
@@ -373,15 +477,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				95DE31EE184F1E440037403D /* VieworksVPBinCtrlObj.cpp in Sources */,
-				95DE31C6184F1D9C0037403D /* Makefile in Sources */,
 				95DE31C8184F1D9C0037403D /* SiSoME4SerialLine.cpp in Sources */,
 				95DE31F3184F1E440037403D /* VieworksVPSyncCtrlObj.cpp in Sources */,
 				95DE31F0184F1E440037403D /* VieworksVPDetInfoCtrlObj.cpp in Sources */,
 				95DE31C7184F1D9C0037403D /* SiSoME4Grabber.cpp in Sources */,
-				95DE31EC184F1E440037403D /* Makefile in Sources */,
 				95DE31F2184F1E440037403D /* VieworksVPRoiCtrlObj.cpp in Sources */,
 				95DE31F1184F1E440037403D /* VieworksVPInterface.cpp in Sources */,
-				95DE31ED184F1E440037403D /* Makefile in Sources */,
 				95DE31EF184F1E440037403D /* VieworksVPCamera.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,6 +496,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -414,7 +516,7 @@
 					"\"$(SRCROOT)/../common/siso-me4/include\"",
 					"\"$(SRCROOT)/../../common/include\"",
 					"\"$(SRCROOT)/../../hardware/include\"",
-					"\"$(SRCROOT)/../../../SiSo-SDK/include\"",
+					"\"$(SRCROOT)/../../../lima-dep/SiSo-SDK/include\"",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -423,7 +525,7 @@
 					"\"$(SRCROOT)/../pco/sdk/pco-sdk-113/lib64\"",
 					"\"$(SRCROOT)/../photonicscience/sdk/ImageStar4022_v1.7\"",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -449,7 +551,7 @@
 					"\"$(SRCROOT)/../common/siso-me4/include\"",
 					"\"$(SRCROOT)/../../common/include\"",
 					"\"$(SRCROOT)/../../hardware/include\"",
-					"\"$(SRCROOT)/../../../SiSo-SDK/include\"",
+					"\"$(SRCROOT)/../../../lima-dep/SiSo-SDK/include\"",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -458,7 +560,7 @@
 					"\"$(SRCROOT)/../pco/sdk/pco-sdk-113/lib64\"",
 					"\"$(SRCROOT)/../photonicscience/sdk/ImageStar4022_v1.7\"",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
