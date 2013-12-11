@@ -30,6 +30,31 @@
 #include "VieworksVPCamera.h"
 
 
+/* NOTES :
+ Liekly should set the following parameters :
+ Param 0: FG_WIDTH,64  |  value=6576 0x19b0
+ Param 1: FG_HEIGHT,c8  |  value=4384 0x1120
+ Param 2: FG_TIMEOUT,258  |  value=1000000 0xf4240
+
+ In term of triggering possibilities :
+ Device1_Process0_TrigCam_TriggerMode
+ Device1_Process0_TrigCam_CC1output
+ 
+ About the parameters used in the VisualApplet used to address the camera :
+ Device1_Process0_Camera_Format -> seems to set the format of the data (cf. enum CLformat)
+ 
+ Device1_Process0_module41_XLength -> Image width
+ Device1_Process0_module41_YLength -> Image half-height ???
+ 
+ For the re-ordering of the pixels :
+ Device1_Process0_Horizontale_Spiegelung_module5_RamAddressWidth (=A) -> the «width» of a «reordered-pixel»
+ Device1_Process0_Horizontale_Spiegelung_module39_ImageWidth (=B) -> the width of the image in «reordered-pixels»
+ Hence A*B/bytes_per_px should be the line width of the image (ROI) in true pixels
+ 
+ Device1_Process0_Horizontale_Spiegelung_module39_ImageHeight -> Half the height of the ROI (which should be centered vertically !!!)
+ 
+ */
+
 // Defining the parameter names of the vieworks-vp SDK :
 
 //---------------------------
