@@ -34,6 +34,8 @@
 // LImA headers :
 #include "HwMaxImageSizeCallback.h"
 #include "HwBufferMgr.h"
+#include "SiSoME4Grabber.h"
+#include "SiSoME4SerialLine.h"
 
 // VieworksVP plugin headers :
 
@@ -61,7 +63,7 @@ namespace lima
       enum VP_trigger_source {VP_CC1=1, VP_external=2};
       enum VP_pixel_clock {VP_30MHz_pclk=0, VP_40MHz_pclk=1};
       
-      Camera(const std::string& bitflow_path, int camera_number=0);
+      Camera(const std::string& i_siso_dir_5="", int board_index=0, int cam_port=0, const std::string& applet_name="mirror_vd4_VieworksVP29MC.hap", unsigned int dma_index=0);
       ~Camera();
 
       // Preparing the camera's SDK to acquire frames
@@ -121,23 +123,21 @@ namespace lima
       int getNbHwAcquiredFrames();
 
       // -- vieworks-vp specific, LIMA don't worry about it !
-      void initialiseController();
-
-      void setTestImage(VP_test_image i_test_image);
+      void setTestImage(VP_test_image i_test_image);  // to export, values 0-3 EXPERT
       void getTestImage(VP_test_image &o_test_image) const;
-      void setDataBits(VP_data_bits i_data_bits);
+      void setDataBits(VP_data_bits i_data_bits);     // To export, values 8,10,12
       void getDataBits(VP_data_bits &o_data_bits) const;
-      void setLUTcontrol(VP_LUT_control i_lut);
+      void setLUTcontrol(VP_LUT_control i_lut);       // To export, values 0-2 EXPERT
       void getLUTcontrol(VP_LUT_control &o_lut) const;
-      void setAsynchronousReset(bool i_AR);
+      void setAsynchronousReset(bool i_AR);           // To export, value 0-1 EXPERT
       void getAsynchronousReset(bool &o_AR) const;
-      void setFlatFieldCorrection(bool i_FFC);
+      void setFlatFieldCorrection(bool i_FFC);        // To export, value 0-1 EXPERT
       void getFlatFieldCorrection(bool &o_FFC) const;
-      void setDefectCorrection(bool i_DC);
+      void setDefectCorrection(bool i_DC);            // To export, value 0-1 EXPERT
       void getDefectCorrection(bool &o_DC) const;
-      void setImageInvert(bool i_II);
+      void setImageInvert(bool i_II);                 // To export, value 0-1 EXPERT
       void getImageInvert(bool &o_II) const;
-      void setHorizontalFlip(bool i_HF);
+      void setHorizontalFlip(bool i_HF);              // To export, value 0-1 EXPERT
       void getHorizontalFlip(bool &o_HF) const;
       void setTrigger(VP_trigger_mode i_trig);
       void getTrigger(VP_trigger_mode &o_trig) const;
@@ -145,51 +145,54 @@ namespace lima
       void getExpSource(VP_exp_source &o_exp_src) const;
       void setTriggerSource(VP_trigger_source i_trig_src);
       void getTriggerSource(VP_trigger_source &o_trig_src) const;
-      void setTriggerPolarity(bool i_pol);
+      void setTriggerPolarity(bool i_pol);            // To export, value 0-1 EXPERT
       void getTriggerPolaroty(bool &o_pol) const;
       void setExpMusTime(unsigned int i_time);
       void getExpMusTime(unsigned int &o_time) const;
-      void setStrobeOffsetMus(unsigned int i_time);
+      void setStrobeOffsetMus(unsigned int i_time);   // To export, value 0-10000 EXPERT
       void getStrobeOffsetMus(unsigned int &o_time) const;
-      void setStrobePolarity(bool i_pol);
+      void setStrobePolarity(bool i_pol);             // To export, value 0-1 EXPERT
       void getStrobePolaroty(bool &o_pol) const;
-      void setAnalogGain(unsigned short i_gain);
+      void setAnalogGain(unsigned short i_gain);      // To export, value 0-899
       void getAnalogGain(unsigned short &o_gain) const;
-      void setAnalogOffset(unsigned char i_off);
+      void setAnalogOffset(unsigned char i_off);      // To export, value 0-255
       void getAnalogOffset(unsigned char &o_off) const;
-      void setFlatFieldIteration(unsigned char i_iter);
+      void setFlatFieldIteration(unsigned char i_iter); // To export, value 0-4 EXPERT
       void getFlatFieldIteration(unsigned char &o_iter) const;
-      void setFlatFieldOffset(unsigned short i_off);
+      void setFlatFieldOffset(unsigned short i_off);    // To export, value 0-4095 EXPERT
       void getFlatFieldOffset(unsigned short &o_off) const;
       
-      void setTemperatureSP(int i_temp);
+      void setTemperatureSP(int i_temp);             // To export, value 5-
       void getTemperatureSP(int &o_temp) const;
-      void setPixelClock(VP_pixel_clock i_clk);
+      void setPixelClock(VP_pixel_clock i_clk);      // To export, value 0-1
       void getPixelClock(VP_pixel_clock &o_clk) const;
-      void setFanStatus(bool i_bootl);
+      void setFanStatus(bool i_bootl);               // To export, value 0-1
       void getFanStatus(bool &o_bool) const;
-      void setPeltierControl(bool i_bootl);
+      void setPeltierControl(bool i_bootl);          // To export, value 0-1
       void getPeltierControl(bool &o_bool) const;
       
-      void getMCUversion(std::string &o_string) const;
-      void getModelNumber(std::string &o_string) const;
-      void getFPGAversion(std::string &o_string) const;
-      void getSerialNumber(std::string &o_string) const;
-      void getCurrentTemperature(double &o_temp) const;
-      void getSensorTemperature(double &o_temp) const;
+      void getMCUversion(std::string &o_string) const;   // To export
+      void getModelNumber(std::string &o_string) const;  // To export
+      void getFPGAversion(std::string &o_string) const;  // To export
+      void getSerialNumber(std::string &o_string) const; // To export
+      void getCurrentTemperature(double &o_temp) const;  // To export
+      void getSensorTemperature(double &o_temp) const;   // To export
       
-      void setOneParam(std::string i_name, std::string i_value1);
-      void setTwoParam(std::string i_name, std::string i_value1, std::string i_value2);
+      void setOneParam(std::string i_name, int i_value1);
+      void setTwoParams(std::string i_name, int i_value1, int i_value2);
       void getOneParam(std::string i_name, std::string &o_value1) const;
-      void getTwoParam(std::string i_name, std::string &o_value1, std::string &o_value2) const;
-      void command(std::string i_name);
-      
+      void getOneParam(std::string i_name, int &o_value1) const;
+      void getTwoParams(std::string i_name, int &o_value1, int &o_value2) const;
+      std::string command(const std::string& i_cmd);
+      std::string get_command(const std::string& i_cmd) const;
+      static int checkComError(const std::string &i_answer);
+      static int checkComError(const std::string &i_answer, std::string &o_message);
     private:
       // -- some internals :
       // Stopping an acquisition, iForce : without waiting the end of frame buffer retrieval by m_acq_thread
-      void _stopAcq(bool iImmediate);
+      void doStopAcq(bool iImmediate);
       // Setting the status in a thread safe manner :
-      void _setStatus(Camera::Status iStatus, bool iForce);
+      void setStatus(Camera::Status iStatus, bool iForce);
       
     private:
       // -- vieworks-vp Lower level functions
@@ -199,18 +202,18 @@ namespace lima
       friend class _AcqThread;
 
       
+      // -- vieworks-vp SDK stuff
+      siso_me4::Grabber						m_grabber;
+      siso_me4::SerialLine				&m_serial_line;
+
       // LIMA / Not directly acquisition related :
       std::string                 m_detector_model;
       std::string                 m_detector_type;
       std::string									m_detector_serial;
       Size												m_detector_size;
       double											m_exp_time;
-
-      // -- vieworks-vp SDK stuff
-      bool                        m_cooler;
-      double                      m_temperature_sp;
-
-      static bool						s_SDK_initted;
+      
+      
     };
     
 
