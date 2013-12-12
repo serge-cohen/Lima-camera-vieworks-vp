@@ -187,6 +187,10 @@ namespace lima
       std::string get_command(const std::string& i_cmd) const;
       static int checkComError(const std::string &i_answer);
       static int checkComError(const std::string &i_answer, std::string &o_message);
+      
+      void getReadoutTime(double &o_time) const; // Computes the readout time.
+      void computeModeAndFPS();
+      
     private:
       // -- some internals :
       // Stopping an acquisition, iForce : without waiting the end of frame buffer retrieval by m_acq_thread
@@ -212,8 +216,10 @@ namespace lima
       std::string									m_detector_serial;
       Size												m_detector_size;
       double											m_exp_time;
-      
-      
+      double											m_latency_time;
+      unsigned int								m_half_height;
+      VP_pixel_clock							m_pixel_clock;
+      double											m_readout_time;
     };
     
 
