@@ -475,7 +475,7 @@ lima::VieworksVP::Camera::setExpTime(double  exp_time)
   // Updating the cache the «strong» way :
   getExpTime(m_exp_time);
 
-  computeMode();
+  computeModeAndFPS();
 }
 
 void
@@ -1209,7 +1209,15 @@ lima::VieworksVP::Camera::checkComError(const std::string &i_answer, std::string
 }
 
 
+void
+lima::VieworksVP::Camera::getReadoutTime(double &o_time) const
+{
+}
 
+void 
+lima::VieworksVP::Camera::computeModeAndFPS()
+{
+}
 // Stopping an acquisition, iForce : without waiting the end of frame buffer retrieval by m_acq_thread
 void
 lima::VieworksVP::Camera::doStopAcq(bool iImmediate)

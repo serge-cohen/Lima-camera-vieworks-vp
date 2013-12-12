@@ -21,7 +21,7 @@ vieworks-vp-objs = VieworksVPCamera.o VieworksVPInterface.o VieworksVPDetInfoCtr
 
 SRCS = $(vieworks-vp-objs:.o=.cpp) 
 
-CXXFLAGS += -I../include -I../../../hardware/include -I../../../common/include \
+CXXFLAGS += -I../include -I../../common/siso-me4/include -I../../../hardware/include -I../../../common/include \
 			-I/opt/siso/include \
 			-Wall -pthread -fPIC -g
 
