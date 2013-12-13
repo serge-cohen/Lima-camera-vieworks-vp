@@ -50,8 +50,8 @@ __path__.append(mod_path)
 ld_open_flags = sys.getdlopenflags()
 sys.setdlopenflags(ld_open_flags | DLFCN.RTLD_GLOBAL)
 
-from Lima.VieworksVP.limaandor3 import VieworksVP as _A
-globals().update(_A.__dict__)
+from Lima.VieworksVP.limaandor3 import VieworksVP as _V
+globals().update(_V.__dict__)
 
 sys.setdlopenflags(ld_open_flags)
 

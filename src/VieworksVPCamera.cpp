@@ -250,7 +250,8 @@ m_readout_time(-1.0)
   int		the_left, the_right, the_top, the_bottom;
   getTwoParams("ha", the_left, the_right);
   getTwoParams("va", the_top, the_bottom);
-  m_detector_size = lima::Size(the_right+1, the_bottom+1);
+  //  m_detector_size = lima::Size(the_right+1, the_bottom+1);
+  m_detector_size = lima::Size(6576, 4384);
   setRoi(Roi(Point(0, 0), m_detector_size));
   
   // Getting exposure time (lima : exposure time in s)
@@ -261,7 +262,7 @@ m_readout_time(-1.0)
   // Setting the camera to 12bit mode :
   setOneParam("db", 12);
   // Making sure that the camera is in 4 taps :
-  setOneParam("cm", 2);
+  setOneParam("cm", 4);
   
   // Setting up the VisualApplet for the acquisition !!!
   // * First lets do the one that will never be changed :
@@ -853,8 +854,10 @@ void
 lima::VieworksVP::Camera::setTrigger(VP_trigger_mode i_trig)
 {
   DEB_MEMBER_FUNCT();
-  int the_val = static_cast<int>(i_trig);
-  setOneParam("tm", the_val);
+  //  int the_val = static_cast<int>(i_trig);
+  //  setOneParam("tm", the_val);
+  DEB_WARNING() << "Only the Standard Mode is enabled due to constraints on exposure time";
+  setOneParam("tm", 1);
 }
 void
 lima::VieworksVP::Camera::getTrigger(VP_trigger_mode &o_trig) const
@@ -1267,7 +1270,8 @@ lima::VieworksVP::Camera::command(const std::string& i_cmd)
   DEB_TRACE() << "About to send '" << the_sent_text << " to the camera's serail line";
   m_serial_line.writeReadStr(the_sent_text, the_answer, 1024, ">", false, 10);
   DEB_TRACE() << "Received the following answer : '" << the_answer << "' from the camera";
-  
+  std::cout << "serial line -set- : " << the_answer << std::endl;
+
   // We have to split the answer in two lines, check that the first line is exactly what we believe it should be !
   std::vector<std::string>		the_lines;
   split(the_answer, '\n', the_lines, true);
@@ -1298,6 +1302,7 @@ lima::VieworksVP::Camera::get_command(const std::string& i_cmd) const
   DEB_TRACE() << "About to send '" << the_sent_text << " to the camera's serail line";
   m_serial_line.writeReadStr(the_sent_text, the_answer, 1024, ">", false, 10);
   DEB_TRACE() << "Received the following answer : '" << the_answer << "' from the camera";
+  std::cout << "serial line get : " << the_answer << std::endl;
   
   // We have to split the answer in two lines, check that the first line is exactly what we believe it should be !
   std::vector<std::string>		the_lines;
@@ -1381,11 +1386,12 @@ lima::VieworksVP::Camera::computeModeAndFPS()
     setTrigger(VP_std_mode);
   }
   else {
-    setTrigger(VP_overlap_mode);
-    // And possibly adjust the latency time to go at a reasonnable rate :
-    if ( (m_exp_time + m_latency_time) < (m_readout_time + 10.0e-6) ) {
-      m_latency_time = m_readout_time - m_exp_time + 10.0e-6; // Adding a 10mus of safety margin.
-    }
+    // setTrigger(VP_overlap_mode);
+    // // And possibly adjust the latency time to go at a reasonnable rate :
+    // if ( (m_exp_time + m_latency_time) < (m_readout_time + 10.0e-6) ) {
+    //   m_latency_time = m_readout_time - m_exp_time + 10.0e-6; // Adding a 10mus of safety margin.
+    // }
+    m_latency_time = m_readout_time + 10.0e-6;
   }
 }
 
