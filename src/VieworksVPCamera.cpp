@@ -691,7 +691,7 @@ lima::VieworksVP::Camera::getPixelSize(double& sizex, double& sizey)
 }
 
 void
-lima::VieworksVP::Camera::getStatus(Camera::Status& o_status)
+lima::VieworksVP::Camera::getStatus(siso_me4::Grabber::Status& o_status)
 {
   DEB_MEMBER_FUNCT();
   m_grabber.getStatus(o_status);
@@ -1393,13 +1393,12 @@ lima::VieworksVP::Camera::computeModeAndFPS()
 void
 lima::VieworksVP::Camera::doStopAcq(bool iImmediate)
 {
-  
 }
 // Setting the status in a thread safe manner :
 void
-lima::VieworksVP::Camera::setStatus(Camera::Status iStatus, bool iForce)
+lima::VieworksVP::Camera::setStatus(siso_me4::Grabber::Status iStatus, bool iForce)
 {
-  
+  //  m_grabber.setStatus(iStatus); 
 }
 
 

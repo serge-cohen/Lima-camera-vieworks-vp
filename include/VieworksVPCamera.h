@@ -51,8 +51,19 @@ namespace lima
     {
       DEB_CLASS_NAMESPC(DebModCamera, "Camera", "VieworksVP");
     public:
-      
-      typedef siso_me4::Grabber::Status Status;
+
+      /*
+      using siso_me4::Grabber::Status;
+      using siso_me4::Grabber::Ready;
+      using siso_me4::Grabber::Running;
+      using siso_me4::Grabber::Fault;
+      */
+      // typedef siso_me4::Grabber::Status Status;
+      /* enum Status { 
+	Ready = siso_me4::Grabber::Ready,
+	Running = siso_me4::Grabber::Running,
+	Fault = siso_me4::Grabber::Fault
+	}; */
       
       // Enum representing the entry possible for gti/sti (test image)
       enum VP_test_image { Off=0, Fixed1=1, Fixed2=2, Moving=3 };
@@ -116,7 +127,7 @@ namespace lima
       
       void getPixelSize(double& sizex, double& sizey);
 
-      void getStatus(Camera::Status& o_status);
+      void getStatus(siso_me4::Grabber::Status& o_status);
       
       // --- Acquisition interface
       void reset();
@@ -196,7 +207,7 @@ namespace lima
       // Stopping an acquisition, iForce : without waiting the end of frame buffer retrieval by m_acq_thread
       void doStopAcq(bool iImmediate);
       // Setting the status in a thread safe manner :
-      void setStatus(Camera::Status iStatus, bool iForce);
+      void setStatus(siso_me4::Grabber::Status iStatus, bool iForce);
       
     private:
       // -- vieworks-vp Lower level functions

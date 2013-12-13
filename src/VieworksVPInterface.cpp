@@ -120,7 +120,7 @@ void
 lima::VieworksVP::Interface::getStatus(StatusType& status)
 {
   DEB_MEMBER_FUNCT();
-  Camera::Status cam_status = siso_me4::Grabber::Ready;
+	  siso_me4::Grabber::Status cam_status = siso_me4::Grabber::Ready;
   m_cam.getStatus(cam_status);
   switch (cam_status)
   {
