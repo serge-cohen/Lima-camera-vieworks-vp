@@ -64,9 +64,6 @@ namespace lima
       
       // Specific to vieworks-vp... Only a wrapper to the camera equivalent methods
       //   but completed by the update of the CtAcquisition object when changing a setting.
-      virtual void setPixelClock(Camera::VP_pixel_clock i_clk);      // To export, value 0-1
-      virtual void getPixelClock(Camera::VP_pixel_clock &o_clk) const;
-
       
       // Giving the possibility to get directly the camera object :
       Camera& getCamera()

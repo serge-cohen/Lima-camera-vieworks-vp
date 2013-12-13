@@ -58,7 +58,7 @@ m_cap_list() // ,
   m_cap_list.push_back(m_cam.getBufferCtrlObj());
   m_cap_list.push_back(m_sync);
   m_cap_list.push_back(HwCap(m_roi));
-  m_cap_list.push_back(HwCap(m_bin));
+  //  m_cap_list.push_back(HwCap(m_bin));
 
 }
 
@@ -120,33 +120,33 @@ void
 lima::VieworksVP::Interface::getStatus(StatusType& status)
 {
   DEB_MEMBER_FUNCT();
-  Camera::Status andor3_status = Camera::Ready;
-  m_cam.getStatus(andor3_status);
-  switch (andor3_status)
+  Camera::Status cam_status = siso_me4::Grabber::Ready;
+  m_cam.getStatus(cam_status);
+  switch (cam_status)
   {
-    case Camera::Ready:
+    case siso_me4::Grabber::Ready:
       status.acq = AcqReady;
       status.det = DetIdle;
       break;
-    case Camera::Exposure:
+    case siso_me4::Grabber::Running:
       status.det = DetExposure;
       status.acq = AcqRunning;
       break;
-    case Camera::Readout:
-       status.det = DetReadout;
-       status.acq = AcqRunning;
-       break;
-      /*
+    case siso_me4::Grabber::Fault:
+      status.det = DetFault;
+      status.acq = AcqFault;
+     /*
        case Camera::Latency:
        status.det = DetLatency;
        status.acq = AcqRunning;
        break;
-       case Camera::Fault:
-       status.det = DetFault;
-       status.acq = AcqFault;
+      case Camera::Readout:
+      status.det = DetReadout;
+      status.acq = AcqRunning;
+      break;
        */
   }
-  status.det_mask = DetExposure | DetReadout | DetLatency;
+  status.det_mask = DetExposure;
   
   DEB_RETURN() << DEB_VAR1(status);
 }

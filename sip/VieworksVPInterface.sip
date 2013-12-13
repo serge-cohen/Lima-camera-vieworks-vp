@@ -28,7 +28,6 @@ namespace VieworksVP
 
     //- From HwInterface
 // SIP is not knowing what is CapList ... We have to use the native type rather than the typedef :
-//    virtual void    getCapList(CapList& /Out/ ) const;
     virtual void    getCapList(std::vector<HwCap> &cap_list /Out/) const;
     virtual void    reset(ResetLevel reset_level /In/ );
     virtual void    prepareAcq();
@@ -36,6 +35,5 @@ namespace VieworksVP
     virtual void    stopAcq();
     virtual void    getStatus(StatusType& status /Out/ );
     virtual int     getNbHwAcquiredFrames();
-
   };
 };
