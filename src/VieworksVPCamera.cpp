@@ -228,6 +228,7 @@ m_detector_type("Vieworks VP camera"),
 m_detector_serial("UNKOWN"),
 m_detector_size(lima::Size(1, 1)),
 m_exp_time(-1.0),
+m_roi(0, 0, 1, 1),
 m_latency_time(0.0),
 m_half_height(-1),
 m_pixel_clock(VP_40MHz_pclk),
@@ -250,6 +251,7 @@ m_readout_time(-1.0)
   getTwoParams("ha", the_left, the_right);
   getTwoParams("va", the_top, the_bottom);
   m_detector_size = lima::Size(the_right+1, the_bottom+1);
+  setRoi(Roi(Point(0, 0), m_detector_size));
   
   // Getting exposure time (lima : exposure time in s)
   int		the_exp_time_mus;
@@ -300,7 +302,7 @@ m_readout_time(-1.0)
   m_grabber.setParameterNamed(names::roi_off_x, 0);			// The ROI
   m_grabber.setParameterNamed(names::roi_width, m_detector_size.getWidth());		// The ROI
   m_grabber.setParameterNamed(names::roi_off_y, 0);			// The ROI
-  m_grabber.setParameterNamed(names::roi_half_height, m_detector_size.getHeight()/2);		// The ROI (half height)
+  m_grabber.setParameterNamed(names::roi_half_height, m_detector_size.getHeight() >> 1);		// The ROI (half height)
   m_grabber.setParameterNamed(names::trig_mode, TrgPortArea::GrabberControlled);
   m_grabber.setParameterNamed(names::trig_ext_sync, TrgPortArea::ON);
   m_grabber.setParameterNamed(names::trig_soft_pulse, 1);
@@ -610,9 +612,22 @@ lima::VieworksVP::Camera::setRoi(const Roi& set_roi)
   setOneParam("rm", 1); // Roi mode type.
   setTwoParams("ha", the_TL.x, the_BR.x);
   setTwoParams("va", the_TL.y, the_BR.y);
+  // Proof-reading (and setting m_roi at once):
+  getRoi(the_roi_to_set);
   
-#error still have to perform all the frame-grabber/applet settigns !!!
+  Size		the_roi_size = m_roi.getSize();
   
+  m_grabber.setHeight(the_roi_size.getHeight());
+  m_grabber.setWidth(the_roi_size.getWidth());
+  m_grabber.setParameterNamed(names::reorder_half_height1, the_roi_size.getHeight() >> 1); // Half of the lines only
+  m_grabber.setParameterNamed(names::reorder_quat_width, the_roi_size.getWidth() >> 2); // horizontal size / 4 (since 64bits for 16bits/px)
+  m_grabber.setParameterNamed(names::reorder_half_height2, the_roi_size.getHeight() >> 1);	// Again only affects half of the lines
+  m_grabber.setParameterNamed(names::roi_off_x, 0);			// The ROI
+  m_grabber.setParameterNamed(names::roi_width, the_roi_size.getWidth());		// The ROI
+  m_grabber.setParameterNamed(names::roi_off_y, 0);			// The ROI
+  m_grabber.setParameterNamed(names::roi_half_height, the_roi_size.getHeight() >> 1);		// The ROI (half height)
+  
+  computeModeAndFPS();
 }
 
 void
@@ -623,6 +638,7 @@ lima::VieworksVP::Camera::getRoi(Roi& hw_roi)
   getTwoParams("ha", the_left, the_right);
   getTwoParams("va", the_top, the_bot);
   hw_roi = Roi(Point(the_left, the_top), Point(the_right, the_bot));
+  m_roi = hw_roi;
 }
 
 bool
@@ -1349,12 +1365,30 @@ lima::VieworksVP::Camera::checkComError(const std::string &i_answer, std::string
 void
 lima::VieworksVP::Camera::getReadoutTime(double &o_time) const
 {
+  o_time = m_readout_time;
 }
 
 void 
 lima::VieworksVP::Camera::computeModeAndFPS()
 {
+  // read-out =  [TVCCD + TFD × {VSIZE – (VAOI + 12)}/2 + {(VAOI + 12) × TL}/2]
+  m_readout_time = 56.3e-6 // constant time part
+  + 6.8e-6 * static_cast<double>(m_detector_size.getHeight() - m_roi.getSize().getHeight()) * 0.5 // time for unread lines
+  + 90.125e-6 * static_cast<double>(m_roi.getSize().getHeight() + 16) * 0.5; // time for read lines (+ timeout)
+  
+  // From this computation, the exposure and the latency time, compute the mode to select (and possibly adjust the latency):
+  if ( m_latency_time > m_readout_time ) {
+    setTrigger(VP_std_mode);
+  }
+  else {
+    setTrigger(VP_overlap_mode);
+    // And possibly adjust the latency time to go at a reasonnable rate :
+    if ( (m_exp_time + m_latency_time) < (m_readout_time + 10.0e-6) ) {
+      m_latency_time = m_readout_time - m_exp_time + 10.0e-6; // Adding a 10mus of safety margin.
+    }
+  }
 }
+
 // Stopping an acquisition, iForce : without waiting the end of frame buffer retrieval by m_acq_thread
 void
 lima::VieworksVP::Camera::doStopAcq(bool iImmediate)

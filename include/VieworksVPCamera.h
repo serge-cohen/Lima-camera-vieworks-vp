@@ -216,6 +216,7 @@ namespace lima
       std::string									m_detector_serial;
       Size												m_detector_size;
       double											m_exp_time;
+      Roi													m_roi;
       double											m_latency_time;
       unsigned int								m_half_height;
       VP_pixel_clock							m_pixel_clock;
