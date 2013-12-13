@@ -154,11 +154,11 @@ namespace VieworksVP
       void setOneParam(std::string i_name, int i_value1);
       void setTwoParams(std::string i_name, int i_value1, int i_value2);
       void getOneParam(std::string i_name, std::string &o_value1 /Out/ ) const;
-      void getOneParam(std::string i_name, int &o_value1 /Out/ ) const;
+      // void getOneParam(std::string i_name, int &o_value1 /Out/ ) const;
       void getTwoParams(std::string i_name, int &o_value1 /Out/ , int &o_value2 /Out/ ) const;
       std::string command(const std::string& i_cmd);
       std::string get_command(const std::string& i_cmd) const;
-      static int checkComError(const std::string &i_answer);
+      // static int checkComError(const std::string &i_answer);
       static int checkComError(const std::string &i_answer, std::string &o_message /Out/ );
       
       void getReadoutTime(double &o_time /Out/ ) const; // Computes the readout time.

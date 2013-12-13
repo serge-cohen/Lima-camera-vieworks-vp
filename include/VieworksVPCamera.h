@@ -157,13 +157,13 @@ namespace lima
       void setTriggerSource(VP_trigger_source i_trig_src);
       void getTriggerSource(VP_trigger_source &o_trig_src) const;
       void setTriggerPolarity(bool i_pol);            // To export, value 0-1 EXPERT
-      void getTriggerPolaroty(bool &o_pol) const;
+      void getTriggerPolarity(bool &o_pol) const;
       void setExpMusTime(unsigned int i_time);
       void getExpMusTime(unsigned int &o_time) const;
       void setStrobeOffsetMus(unsigned int i_time);   // To export, value 0-10000 EXPERT
       void getStrobeOffsetMus(unsigned int &o_time) const;
       void setStrobePolarity(bool i_pol);             // To export, value 0-1 EXPERT
-      void getStrobePolaroty(bool &o_pol) const;
+      void getStrobePolarity(bool &o_pol) const;
       void setAnalogGain(unsigned short i_gain);      // To export, value 0-899
       void getAnalogGain(unsigned short &o_gain) const;
       void setAnalogOffset(unsigned char i_off);      // To export, value 0-255
