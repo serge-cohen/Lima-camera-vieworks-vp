@@ -258,6 +258,8 @@ m_readout_time(-1.0)
 
   // Setting the camera to 12bit mode :
   setOneParam("db", 12);
+  // Making sure that the camera is in 4 taps :
+  setOneParam("cm", 2);
   
   // Setting up the VisualApplet for the acquisition !!!
   // * First lets do the one that will never be changed :
@@ -550,26 +552,77 @@ void
 lima::VieworksVP::Camera::getNbHwAcquiredFrames(int &nb_acq_frames)
 {
   DEB_MEMBER_FUNCT();
-
+  nb_acq_frames = static_cast<int>(m_grabber.getNbHwAcquiredFrames());
 }
 
+
+/*! Constraints are the following ones :
+ *   * verticaly, the margin should be equals top and bottom
+ *   * verticaly, the height should be a multiple of 4 (so half hiehgt is still mulitple of 2)
+ *   * horizontaly, the width should be a multiple of 4 (using 64bit words for mirroring odd lines)
+ *  All these should be applied while making sure that set_roi is within hw_roi
+ */
 void
 lima::VieworksVP::Camera::checkRoi(const Roi& set_roi, Roi& hw_roi)
 {
   DEB_MEMBER_FUNCT();
-
+  DEB_PARAM() << DEB_VAR1(set_roi);
+  
+  int			top_margin, bot_margin;
+  
+  top_margin = set_roi.getTopLeft().y;
+  bot_margin = m_detector_size.getHeight() - set_roi.getBottomRight().y - 1;
+  if ( top_margin > bot_margin ) {
+    top_margin = bot_margin;
+  }
+  else {
+    bot_margin = top_margin;
+  }
+  // Making sure that the margin is lower mulitple of 2, so the height is multiple of 4.
+  bot_margin = top_margin = top_margin - (top_margin % 2);
+  int		the_height = m_detector_size.getHeight() - (top_margin << 1);
+  
+  // Now computing the x and width so that width is also a multiple of 4 :
+  int		left_margin = set_roi.getTopLeft().x;
+  int		the_width = set_roi.getSize().getWidth();
+  if ( (2 > (the_width % 2)) && ( 0 < (the_width % 2)) ) { // More than 2 pixels width to add, do at least on the left…
+    left_margin -= 1;
+  }
+  the_width = 4 * (1+((the_width - 1) / 4));
+  
+  hw_roi = Roi(left_margin, top_margin, the_width, the_height);
 }
+
 void
 lima::VieworksVP::Camera::setRoi(const Roi& set_roi)
 {
   DEB_MEMBER_FUNCT();
-
+  Roi			the_roi_to_set;
+  checkRoi(set_roi, the_roi_to_set);
+  if ( the_roi_to_set.getSize() == m_detector_size ) {
+    setTwoParams("ha", 0, m_detector_size.getWidth()-1);
+    setTwoParams("va", 0, m_detector_size.getHeight()-1);
+    setOneParam("rm", 0); // Special mode for full frame.
+  }
+  
+  Point		the_TL = the_roi_to_set.getTopLeft();
+  Point		the_BR = the_roi_to_set.getBottomRight();
+  setOneParam("rm", 1); // Roi mode type.
+  setTwoParams("ha", the_TL.x, the_BR.x);
+  setTwoParams("va", the_TL.y, the_BR.y);
+  
+#error still have to perform all the frame-grabber/applet settigns !!!
+  
 }
+
 void
 lima::VieworksVP::Camera::getRoi(Roi& hw_roi)
 {
   DEB_MEMBER_FUNCT();
-
+  int			the_top, the_bot, the_left, the_right;
+  getTwoParams("ha", the_left, the_right);
+  getTwoParams("va", the_top, the_bot);
+  hw_roi = Roi(Point(the_left, the_top), Point(the_right, the_bot));
 }
 
 bool
@@ -583,7 +636,7 @@ void
 lima::VieworksVP::Camera::checkBin(Bin& ioBin)
 {
   DEB_MEMBER_FUNCT();
-
+  ioBin = Bin(1, 1);
 }
 void
 lima::VieworksVP::Camera::setBin(const Bin& iBin)
@@ -595,34 +648,38 @@ void
 lima::VieworksVP::Camera::getBin(Bin& oBin)
 {
   DEB_MEMBER_FUNCT();
-
+  oBin = Bin(1, 1);
 }
 
 void
 lima::VieworksVP::Camera::setShutterMode(ShutterMode mode)
 {
   DEB_MEMBER_FUNCT();
-
+  DEB_PARAM() << DEB_VAR1(mode);
 }
+
 void
 lima::VieworksVP::Camera::getShutterMode(ShutterMode& mode)
 {
   DEB_MEMBER_FUNCT();
-
+  mode = ShutterManual;
 }
 
 void
 lima::VieworksVP::Camera::getPixelSize(double& sizex, double& sizey)
 {
   DEB_MEMBER_FUNCT();
-
+#warning these are the sizes for the VP-8M and VP-29M.
+  sizex = sizey = 5.5; // in micron ?
+                       // this would be 7.4 micron for the VP-16M.
 }
 
 void
-lima::VieworksVP::Camera::getStatus(Camera::Status& status)
+lima::VieworksVP::Camera::getStatus(Camera::Status& o_status)
 {
   DEB_MEMBER_FUNCT();
-
+  m_grabber.getStatus(o_status);
+  DEB_RETURN() << DEB_VAR1(DEB_HEX(o_status));
 }
 
 // --- Acquisition interface
@@ -630,13 +687,15 @@ void
 lima::VieworksVP::Camera::reset()
 {
   DEB_MEMBER_FUNCT();
- 
+  doStopAcq(false); // We wait for the current frame buffer retrieval to be finished.
+#warning Maybe later should really implement an innitialise or reset parameters method.
 }
+
 int
 lima::VieworksVP::Camera::getNbHwAcquiredFrames()
 {
   DEB_MEMBER_FUNCT();
-
+  return static_cast<int>(m_grabber.getNbHwAcquiredFrames());
 }
 
 // -- vieworks-vp specific, LIMA don't worry about it !
@@ -645,339 +704,417 @@ void
 lima::VieworksVP::Camera::setTestImage(VP_test_image i_test_image)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_test_image);
+  setOneParam("ti", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getTestImage(VP_test_image &o_test_image) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("ti", the_val);
+  o_test_image = static_cast<VP_test_image>(the_val);
 }
+
+/*! CAREFUL : this is NOT setting the full chain (use setImageType for the comprehensive function). */
 void
 lima::VieworksVP::Camera::setDataBits(VP_data_bits i_data_bits)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_data_bits);
+  setOneParam("db", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getDataBits(VP_data_bits &o_data_bits) const
 {
   DEB_MEMBER_FUNCT();
-
+  int  the_value;
+  getOneParam("db", the_value);
+  o_data_bits = static_cast<VP_data_bits>(the_value);
 }
+
 void
 lima::VieworksVP::Camera::setLUTcontrol(VP_LUT_control i_lut)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_lut);
+  setOneParam("ls", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getLUTcontrol(VP_LUT_control &o_lut) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("ls", the_val);
+  o_lut = static_cast<VP_LUT_control>(the_val);
 }
+
 void
 lima::VieworksVP::Camera::setAsynchronousReset(bool i_AR)
 {
   DEB_MEMBER_FUNCT();
- 
+  int the_val = static_cast<int>(i_AR);
+  setOneParam("ar", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getAsynchronousReset(bool &o_AR) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("ar", the_val);
+  o_AR = static_cast<bool>(the_val);
 }
+
 void
 lima::VieworksVP::Camera::setFlatFieldCorrection(bool i_FFC)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_FFC);
+  setOneParam("fc", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getFlatFieldCorrection(bool &o_FFC) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("fc", the_val);
+  o_FFC = static_cast<bool>(the_val);
 }
 void
 lima::VieworksVP::Camera::setDefectCorrection(bool i_DC)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_DC);
+  setOneParam("dc", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getDefectCorrection(bool &o_DC) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("dc", the_val);
+  o_DC = static_cast<bool>(the_val);
 }
 void
 lima::VieworksVP::Camera::setImageInvert(bool i_II)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_II);
+  setOneParam("ii", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getImageInvert(bool &o_II) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("ii", the_val);
+  o_II = static_cast<bool>(the_val);
 }
 void
 lima::VieworksVP::Camera::setHorizontalFlip(bool i_HF)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_HF);
+  setOneParam("hf", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getHorizontalFlip(bool &o_HF) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("hf", the_val);
+  o_HF = static_cast<bool>(the_val);
 }
 void
 lima::VieworksVP::Camera::setTrigger(VP_trigger_mode i_trig)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_trig);
+  setOneParam("tm", the_val);
 }
 void
 lima::VieworksVP::Camera::getTrigger(VP_trigger_mode &o_trig) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("tm", the_val);
+  o_trig = static_cast<VP_trigger_mode>(the_val);
 }
 void
 lima::VieworksVP::Camera::setExpSource(VP_exp_source i_exp_src)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_exp_src);
+  setOneParam("es", the_val);
 }
 void
 lima::VieworksVP::Camera::getExpSource(VP_exp_source &o_exp_src) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("es", the_val);
+  o_exp_src = static_cast<VP_exp_source>(the_val);
 }
 void
 lima::VieworksVP::Camera::setTriggerSource(VP_trigger_source i_trig_src)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_trig_src);
+  setOneParam("ts", the_val);
 }
 void
 lima::VieworksVP::Camera::getTriggerSource(VP_trigger_source &o_trig_src) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("ts", the_val);
+  o_trig_src = static_cast<VP_trigger_source>(the_val);
 }
 void
 lima::VieworksVP::Camera::setTriggerPolarity(bool i_pol)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_pol);
+  setOneParam("tp", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getTriggerPolaroty(bool &o_pol) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("tp", the_val);
+  o_pol = static_cast<bool>(the_val);
 }
 void
 lima::VieworksVP::Camera::setExpMusTime(unsigned int i_time)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_time);
+  setOneParam("et", the_val);
 }
 void
 lima::VieworksVP::Camera::getExpMusTime(unsigned int &o_time) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("et", the_val);
+  o_time = static_cast<unsigned int>(the_val);
 }
 void
 lima::VieworksVP::Camera::setStrobeOffsetMus(unsigned int i_time)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_time);
+  setOneParam("so", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getStrobeOffsetMus(unsigned int &o_time) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("so", the_val);
+  o_time = static_cast<unsigned int>(the_val);
 }
 void
 lima::VieworksVP::Camera::setStrobePolarity(bool i_pol)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_pol);
+  setOneParam("sp", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getStrobePolaroty(bool &o_pol) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("sp", the_val);
+  o_pol = static_cast<bool>(the_val);
 }
 void
 lima::VieworksVP::Camera::setAnalogGain(unsigned short i_gain)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_gain);
+  setOneParam("ag", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getAnalogGain(unsigned short &o_gain) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("ag", the_val);
+  o_gain = static_cast<unsigned short>(the_val);
 }
 void
 lima::VieworksVP::Camera::setAnalogOffset(unsigned char i_off)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_off);
+  setOneParam("ao", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getAnalogOffset(unsigned char &o_off) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("ao", the_val);
+  o_off = static_cast<unsigned char>(the_val);
 }
 void
 lima::VieworksVP::Camera::setFlatFieldIteration(unsigned char i_iter)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_iter);
+  setOneParam("fi", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getFlatFieldIteration(unsigned char &o_iter) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("fi", the_val);
+  o_iter = static_cast<unsigned char>(the_val);
 }
 void
 lima::VieworksVP::Camera::setFlatFieldOffset(unsigned short i_off)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_off);
+  setOneParam("fo", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getFlatFieldOffset(unsigned short &o_off) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("fo", the_val);
+  o_off = static_cast<unsigned short>(the_val);
 }
 
 void
 lima::VieworksVP::Camera::setTemperatureSP(int i_temp)
 {
   DEB_MEMBER_FUNCT();
-
+  setOneParam("tt", i_temp);
 }
 
 void
 lima::VieworksVP::Camera::getTemperatureSP(int &o_temp) const
 {
   DEB_MEMBER_FUNCT();
-
+  getOneParam("tt", o_temp);
 }
 void
 lima::VieworksVP::Camera::setPixelClock(VP_pixel_clock i_clk)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_clk);
+  setOneParam("ps", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getPixelClock(VP_pixel_clock &o_clk) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("ps", the_val);
+  o_clk = static_cast<VP_pixel_clock>(the_val);
 }
 void
-lima::VieworksVP::Camera::setFanStatus(bool i_bootl)
+lima::VieworksVP::Camera::setFanStatus(bool i_bool)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_bool);
+  setOneParam("ft", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getFanStatus(bool &o_bool) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("ft", the_val);
+  o_bool = static_cast<bool>(the_val);
 }
 void
-lima::VieworksVP::Camera::setPeltierControl(bool i_bootl)
+lima::VieworksVP::Camera::setPeltierControl(bool i_bool)
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val = static_cast<int>(i_bool);
+  setOneParam("tc", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getPeltierControl(bool &o_bool) const
 {
   DEB_MEMBER_FUNCT();
-
+  int the_val;
+  getOneParam("tc", the_val);
+  o_bool = static_cast<bool>(the_val);
 }
 
 void
 lima::VieworksVP::Camera::getMCUversion(std::string &o_string) const
 {
   DEB_MEMBER_FUNCT();
-
+  getOneParam("mv", o_string);
 }
 
 void
 lima::VieworksVP::Camera::getModelNumber(std::string &o_string) const
 {
   DEB_MEMBER_FUNCT();
-
+  getOneParam("mn", o_string);
 }
 
 void
 lima::VieworksVP::Camera::getFPGAversion(std::string &o_string) const
 {
   DEB_MEMBER_FUNCT();
-
+  getOneParam("fv", o_string);
 }
 
 void
 lima::VieworksVP::Camera::getSerialNumber(std::string &o_string) const
 {
   DEB_MEMBER_FUNCT();
-
+  //  getOneParam("sn", o_string);
+  o_string = "UNKNOWN";
 }
 
 void
 lima::VieworksVP::Camera::getCurrentTemperature(double &o_temp) const
 {
   DEB_MEMBER_FUNCT();
-
+  std::string  the_string;
+  getOneParam("ct", the_string);
+  std::istringstream		the_str(the_string);
+  the_str >> o_temp;
 }
 
 void
 lima::VieworksVP::Camera::getSensorTemperature(double &o_temp) const
 {
   DEB_MEMBER_FUNCT();
-
+  std::string  the_string;
+  getOneParam("st", the_string);
+  std::istringstream		the_str(the_string);
+  the_str >> o_temp;
 }
 
 

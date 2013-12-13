@@ -52,8 +52,8 @@ namespace lima
       DEB_CLASS_NAMESPC(DebModCamera, "Camera", "VieworksVP");
     public:
       
-      enum Status { Ready, Exposure, Readout, Latency, Fault };
-
+      typedef siso_me4::Grabber::Status Status;
+      
       // Enum representing the entry possible for gti/sti (test image)
       enum VP_test_image { Off=0, Fixed1=1, Fixed2=2, Moving=3 };
       enum VP_data_bits {VP_8bits=8, VP_10bits=10, VP_12bits=12};
@@ -116,7 +116,7 @@ namespace lima
       
       void getPixelSize(double& sizex, double& sizey);
 
-      void getStatus(Camera::Status& status);
+      void getStatus(Camera::Status& o_status);
       
       // --- Acquisition interface
       void reset();
