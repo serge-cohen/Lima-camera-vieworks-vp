@@ -89,11 +89,11 @@ namespace VieworksVP
       
       void getPixelSize(double& sizex /Out/ , double& sizey /Out/ );
 
-      void getStatus(Camera::Status& o_status /Out/ );
+      void getStatus(Status& o_status /Out/ );
       
       // --- Acquisition interface
       void reset();
-      int getNbHwAcquiredFrames();
+      // int getNbHwAcquiredFrames();
 
       // -- vieworks-vp specific, LIMA don't worry about it !
       void setTestImage(VP_test_image i_test_image /In/ );
@@ -119,13 +119,13 @@ namespace VieworksVP
       void setTriggerSource(VP_trigger_source i_trig_src);
       void getTriggerSource(VP_trigger_source &o_trig_src /Out/ ) const;
       void setTriggerPolarity(bool i_pol);            // To export, value 0-1 EXPERT
-      void getTriggerPolaroty(bool &o_pol /Out/ ) const;
+      void getTriggerPolarity(bool &o_pol /Out/ ) const;
       void setExpMusTime(unsigned int i_time);
       void getExpMusTime(unsigned int &o_time /Out/ ) const;
       void setStrobeOffsetMus(unsigned int i_time);   // To export, value 0-10000 EXPERT
       void getStrobeOffsetMus(unsigned int &o_time /Out/ ) const;
       void setStrobePolarity(bool i_pol);             // To export, value 0-1 EXPERT
-      void getStrobePolaroty(bool &o_pol /Out/ ) const;
+      void getStrobePolarity(bool &o_pol /Out/ ) const;
       void setAnalogGain(unsigned short i_gain);      // To export, value 0-899
       void getAnalogGain(unsigned short &o_gain /Out/ ) const;
       void setAnalogOffset(unsigned char i_off);      // To export, value 0-255

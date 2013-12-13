@@ -903,7 +903,7 @@ lima::VieworksVP::Camera::setTriggerPolarity(bool i_pol)
 }
 
 void
-lima::VieworksVP::Camera::getTriggerPolaroty(bool &o_pol) const
+lima::VieworksVP::Camera::getTriggerPolarity(bool &o_pol) const
 {
   DEB_MEMBER_FUNCT();
   int the_val;
@@ -950,7 +950,7 @@ lima::VieworksVP::Camera::setStrobePolarity(bool i_pol)
 }
 
 void
-lima::VieworksVP::Camera::getStrobePolaroty(bool &o_pol) const
+lima::VieworksVP::Camera::getStrobePolarity(bool &o_pol) const
 {
   DEB_MEMBER_FUNCT();
   int the_val;
