@@ -21,9 +21,13 @@ vieworks-vp-objs = VieworksVPCamera.o VieworksVPInterface.o VieworksVPDetInfoCtr
 
 SRCS = $(vieworks-vp-objs:.o=.cpp) 
 
-CXXFLAGS += -I../include -I../../common/siso-me4/include -I../../../hardware/include -I../../../common/include \
-			-I/opt/siso/include \
-			-Wall -pthread -fPIC -g
+CXXFLAGS += \
+	-I../include \
+	-I../../common/siso-me4/include \
+	-I../../../hardware/include \
+	-I../../../common/include \
+	-I/opt/siso/include \
+	-Wall -pthread -fPIC -g
 
 all:	VieworksVP.o
 
@@ -41,3 +45,7 @@ clean:
 	rm -f $*.d
 
 -include $(SRCS:.cpp=.P)
+
+.PHONY: check-syntax
+check-syntax:
+	$(CXX) -Wall -Wextra -fsyntax-only $(CXXFLAGS) $(CHK_SOURCES)

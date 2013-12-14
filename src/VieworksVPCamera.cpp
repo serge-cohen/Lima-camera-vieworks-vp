@@ -1042,17 +1042,18 @@ void
 lima::VieworksVP::Camera::setPixelClock(VP_pixel_clock i_clk)
 {
   DEB_MEMBER_FUNCT();
-  int the_val = static_cast<int>(i_clk);
-  setOneParam("ps", the_val);
+  // int the_val = static_cast<int>(i_clk);
+  // setOneParam("ps", the_val);
 }
 
 void
 lima::VieworksVP::Camera::getPixelClock(VP_pixel_clock &o_clk) const
 {
   DEB_MEMBER_FUNCT();
-  int the_val;
-  getOneParam("ps", the_val);
-  o_clk = static_cast<VP_pixel_clock>(the_val);
+  // int the_val;
+  // getOneParam("ps", the_val);
+  // o_clk = static_cast<VP_pixel_clock>(the_val);
+  o_clk = VP_40MHz_pclk;
 }
 void
 lima::VieworksVP::Camera::setFanStatus(bool i_bool)
@@ -1270,7 +1271,7 @@ lima::VieworksVP::Camera::command(const std::string& i_cmd)
   DEB_TRACE() << "About to send '" << the_sent_text << " to the camera's serail line";
   m_serial_line.writeReadStr(the_sent_text, the_answer, 1024, ">", false, 10);
   DEB_TRACE() << "Received the following answer : '" << the_answer << "' from the camera";
-  std::cout << "serial line -set- : " << the_answer << std::endl;
+  //  std::cout << "serial line -set- : " << the_answer << std::endl;
 
   // We have to split the answer in two lines, check that the first line is exactly what we believe it should be !
   std::vector<std::string>		the_lines;
@@ -1302,7 +1303,7 @@ lima::VieworksVP::Camera::get_command(const std::string& i_cmd) const
   DEB_TRACE() << "About to send '" << the_sent_text << " to the camera's serail line";
   m_serial_line.writeReadStr(the_sent_text, the_answer, 1024, ">", false, 10);
   DEB_TRACE() << "Received the following answer : '" << the_answer << "' from the camera";
-  std::cout << "serial line get : " << the_answer << std::endl;
+  //std::cout << "serial line get : " << the_answer << std::endl;
   
   // We have to split the answer in two lines, check that the first line is exactly what we believe it should be !
   std::vector<std::string>		the_lines;
@@ -1380,6 +1381,8 @@ lima::VieworksVP::Camera::computeModeAndFPS()
   m_readout_time = 56.3e-6 // constant time part
   + 6.8e-6 * static_cast<double>(m_detector_size.getHeight() - m_roi.getSize().getHeight()) * 0.5 // time for unread lines
   + 90.125e-6 * static_cast<double>(m_roi.getSize().getHeight() + 16) * 0.5; // time for read lines (+ timeout)
+
+  std::cerr << "**** READOUT TIME is " << m_readout_time << "s ****" << std::endl;
   
   // From this computation, the exposure and the latency time, compute the mode to select (and possibly adjust the latency):
   if ( m_latency_time > m_readout_time ) {
