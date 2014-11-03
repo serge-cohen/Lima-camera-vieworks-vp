@@ -194,7 +194,7 @@ namespace lima {
 
 
 /* NOTES :
- Liekly should set the following parameters :
+ Likely should set the following parameters :
  Param 0: FG_WIDTH,64  |  value=6576 0x19b0
  Param 1: FG_HEIGHT,c8  |  value=4384 0x1120
  Param 2: FG_TIMEOUT,258  |  value=1000000 0xf4240
@@ -289,7 +289,8 @@ m_readout_time(-1.0)
   m_grabber.setParameterNamed("Device1_Process0_TrigCam_FlashEnable", TrgPortArea::OFF);
 
   // * The ones that it would be nice at some point to be able to change :
-  m_grabber.setPixelFormat(lima::siso_me4::Grabber::siso_px_16b);
+  // Currently the pixel-format (gray-16b) of the frame-grabber applet can NOT be changed (read-only) :
+  //  m_grabber.setPixelFormat(lima::siso_me4::Grabber::siso_px_16b);
   m_grabber.setParameterNamed(names::trig_ext_source, TrgPortArea::InSignal0);
   m_grabber.setParameterNamed(names::cam_px_format, CameraGrayAreaBase::DualTap12Bit);
 
@@ -366,7 +367,8 @@ lima::VieworksVP::Camera::setImageType(ImageType type)
     DEB_WARNING() << "You have requested a type that is NOT available...\n"
     << "Currently only 12 bpp is available, so will stay on that";
   }
-  m_grabber.setPixelFormat(lima::siso_me4::Grabber::siso_px_16b);
+  // Currently the pixel format is read-only on the frame-grabber (=gray 16b), hence cannot be set :
+  // m_grabber.setPixelFormat(lima::siso_me4::Grabber::siso_px_16b);
   m_grabber.setParameterNamed(names::cam_px_format, CameraGrayAreaBase::DualTap12Bit);
 
 }
@@ -1379,8 +1381,8 @@ lima::VieworksVP::Camera::computeModeAndFPS()
 {
   // read-out =  [TVCCD + TFD × {VSIZE – (VAOI + 12)}/2 + {(VAOI + 12) × TL}/2]
   m_readout_time = 56.3e-6 // constant time part
-  + 6.8e-6 * static_cast<double>(m_detector_size.getHeight() - m_roi.getSize().getHeight()) * 0.5 // time for unread lines
-  + 90.125e-6 * static_cast<double>(m_roi.getSize().getHeight() + 16) * 0.5; // time for read lines (+ timeout)
+    + 6.8e-6 * static_cast<double>(m_detector_size.getHeight() - m_roi.getSize().getHeight()) * 0.5 // time for unread lines
+    + 90.125e-6 * static_cast<double>(m_roi.getSize().getHeight() + 16) * 0.5; // time for read lines (+ timeout)
 
   std::cerr << "**** READOUT TIME is " << m_readout_time << "s ****" << std::endl;
   
