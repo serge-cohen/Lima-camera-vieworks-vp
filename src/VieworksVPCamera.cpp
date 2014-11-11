@@ -446,6 +446,10 @@ lima::VieworksVP::Camera::setTrigMode(TrigMode  mode)
       m_grabber.setParameterNamed(names::trig_cc1_signal, TrgPortArea::Gnd);
       
       break;
+
+    case ExtGate:  // This one should be obtained using setTriggerSource(VP_external); and «ges» (to pulse width)
+    case IntTrigMult: // This one should be obtained using setTriggerSource(VP_CC1) and Fg_sendSoftwareTrigger Fg_sendSoftwareTriggerEx
+    case ExtTrigSingle: // NOT available on this camera/frame-grabber pair.
     default:
       THROW_HW_ERROR(Error) << "The triggering mode you requested " << mode
       << " is NOT implemented in the current version of the plugin";
@@ -510,10 +514,10 @@ lima::VieworksVP::Camera::setLatTime(double  lat_time)
     << " the camera accepted a different value " << m_latency_time
     << " due to internal timing constraints";
   }
-//  // Settting the frame rate for the frame-grabber (since it is responsible for triggering in IntTrig mode)
-//  double  the_fps = 1.0 / (m_latency_time + m_exp_time);
-//  m_grabber.setParameterNamed(names::trig_ext_fps, the_fps);
-
+  // Settting the frame rate for the frame-grabber (since it is responsible for triggering in IntTrig mode)
+  double  the_fps = 1.0 / (m_latency_time + m_exp_time);
+  m_grabber.setParameterNamed(names::trig_ext_fps, the_fps);
+  DEB_ALWAYS() << "Setting the frame rate of the FG-trigger to " << the_fps << "f/s.";
 }
 void
 lima::VieworksVP::Camera::getLatTime(double& lat_time)
