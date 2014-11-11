@@ -317,8 +317,9 @@ m_readout_time(-1.0)
   setTrigger(VP_std_mode);
   setPixelClock(VP_40MHz_pclk);
   setExpTime(0.020);
-  getReadoutTime(m_readout_time);
   setLatTime(0.0);
+  computeModeAndFPS(); // sets the readout-time.
+  //  getReadoutTime(m_readout_time); // Useless : m_readout_time=m_readout_time !!!
 }
 
 lima::VieworksVP::Camera::~Camera()
@@ -852,14 +853,28 @@ lima::VieworksVP::Camera::getHorizontalFlip(bool &o_HF) const
   getOneParam("hf", the_val);
   o_HF = static_cast<bool>(the_val);
 }
+
+/* analysis of the trigerring modes : 
+ * 0 : free-run mode, auto trigerring as fast as possible given the exposure time. Useless for external-multi trigeering. The exposure is set to start so that it ends soon after the previous readout is done.
+ * 1 : standard mode, readout starts as soon as exposure is done, no trigger accepted before end of readout (trig-period >= readout+exposure) 
+ * 2 : fast mode, exposure time is triggered by next trigger, so exposure time ~ trigger time (and trigger time > readout)
+ * 3 : double-exposure mode, complex mode, only interesting to have minimum time betwween two successive images (image acquired by pairs)
+ * 4 : overlap mode : trigger accepted during readout. Max frame rate for exposure < readout < trigger (in which case trigger min is readout).
+ *
+ * Overlap (p.31) : la camera reste en standby jusqu'au premier trig. alors la lecture commence au bout de l'exposition. Si un nouveau trig arrive durant la lecture de la première image la lecture continue et une nouvelle exposition commence. Toutefois si un trig arrive pendant l'exposition il est ignoré. To obtain the image as maximum frame for trigger input, Exposure Time should not be longer than Readout time, trigger time should not be shorter than Readout time.
+
+ * stm -> trigger mode
+ * set -> exposure time
+ */
+
 void
 lima::VieworksVP::Camera::setTrigger(VP_trigger_mode i_trig)
 {
   DEB_MEMBER_FUNCT();
-  //  int the_val = static_cast<int>(i_trig);
-  //  setOneParam("tm", the_val);
-  DEB_WARNING() << "Only the Standard Mode is enabled due to constraints on exposure time";
-  setOneParam("tm", 1);
+  int the_val = static_cast<int>(i_trig);
+  setOneParam("tm", the_val);
+  // DEB_WARNING() << "Only the Standard Mode is enabled due to constraints on exposure time";
+  // setOneParam("tm", 1);
 }
 void
 lima::VieworksVP::Camera::getTrigger(VP_trigger_mode &o_trig) const
@@ -1385,18 +1400,23 @@ lima::VieworksVP::Camera::computeModeAndFPS()
     + 90.125e-6 * static_cast<double>(m_roi.getSize().getHeight() + 16) * 0.5; // time for read lines (+ timeout)
 
   std::cerr << "**** READOUT TIME is " << m_readout_time << "s ****" << std::endl;
+  std::cerr << "**** Best rate is " << 1.0/m_readout_time << "f/s (0s exposure in standard mode, <" << m_readout_time << "s in overlap mode) ****" << std::endl;
   
   // From this computation, the exposure and the latency time, compute the mode to select (and possibly adjust the latency):
   if ( m_latency_time > m_readout_time ) {
     setTrigger(VP_std_mode);
+    std::cerr << "**** Setting trigger to STANDARD MODE ****" << std::endl;
   }
   else {
-    // setTrigger(VP_overlap_mode);
-    // // And possibly adjust the latency time to go at a reasonnable rate :
-    // if ( (m_exp_time + m_latency_time) < (m_readout_time + 10.0e-6) ) {
-    //   m_latency_time = m_readout_time - m_exp_time + 10.0e-6; // Adding a 10mus of safety margin.
-    // }
-    m_latency_time = m_readout_time + 10.0e-6;
+    setTrigger(VP_overlap_mode);
+    std::cerr << "**** Setting trigger to OVERLAP MODE";
+    // And possibly adjust the latency time to go at a reasonnable rate :
+    if ( (m_exp_time + m_latency_time) < (m_readout_time + 10.0e-6) ) {
+      m_latency_time = m_readout_time - m_exp_time + 10.0e-6; // Adding a 10mus of safety margin.
+      std::cerr << " and adjusting latency time to " << m_latency_time << " s.";
+    }
+    std::cerr << " ****" << std::endl;
+    // m_latency_time = m_readout_time + 10.0e-6;
   }
 }
 
