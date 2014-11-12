@@ -319,6 +319,12 @@ m_readout_time(-1.0)
   setExpTime(0.020);
   setLatTime(0.0);
   computeModeAndFPS(); // sets the readout-time.
+
+  // Reporting the settings of the frame-grabber in term of frame-rate :
+  double the_fg_fps;
+  m_grabber.getParameterNamed(names::trig_ext_fps, &the_fg_fps);
+  DEB_ALWAYS() << "[in Camera::Camera] Frame-grabber frame-rate is : " << the_fg_fps << "f/s.";
+
   //  getReadoutTime(m_readout_time); // Useless : m_readout_time=m_readout_time !!!
 }
 
@@ -333,7 +339,16 @@ void
 lima::VieworksVP::Camera::prepareAcq()
 {
   DEB_MEMBER_FUNCT();
+  // Reporting the settings of the frame-grabber in term of frame-rate :
+  double the_fg_fps;
+  m_grabber.getParameterNamed(names::trig_ext_fps, &the_fg_fps);
+  DEB_ALWAYS() << "BEFORE prepare : Frame-grabber frame-rate is : " << the_fg_fps << "f/s.";
+
   m_grabber.prepareAcq();
+
+  // For an «undocumented» reason, the getParameter call after the prepare is prvoking a crash !!!
+//   m_grabber.getParameterNamed(names::trig_ext_fps, &the_fg_fps);
+//   DEB_ALWAYS() << "AFTER prepare : Frame-grabber frame-rate is : " << the_fg_fps << "f/s.";
 }
 
 // Launches the SDK's acquisition and the m_acq_thread to retrieve frame buffers as they are ready
@@ -341,6 +356,23 @@ void
 lima::VieworksVP::Camera::startAcq()
 {
   DEB_MEMBER_FUNCT();
+  int   the_es, the_ts, the_tm;
+  double the_fg_fps;
+  getOneParam("es", the_es);
+  getOneParam("ts", the_ts);
+  getOneParam("tm", the_tm);
+  //  m_grabber.getParameterNamed(names::trig_ext_fps, &the_fg_fps);
+
+  DEB_ALWAYS() << "Starting an acquisition. Expposure parameters are as follow :\n" 
+	       << "\tExposure time : " << m_exp_time << "s.\n"
+	       << "\tLatency time : " << m_latency_time << "s.\n"
+	       << "\tReadout time : " << m_readout_time << "s.\n"
+	       << "\tProviding a frame rate of " << 1.0/(m_exp_time+m_latency_time) << "f/s.\n"
+	       << "\tCamera trigger source (ts) parameter (int=1, ext=2) to " << the_ts << ".\n"
+	       << "\tCamera trigger mode (tm) parameter (std=0, overlap=4) to " << the_tm << ".\n"
+	       << "\tCamera exposure source (es) parameter (prog=0, gate=1) to " << the_es << ".\n";
+  //	       << "\tFrame-grabber triggering rate " << the_fg_fps << "Hz.\n";
+
   m_grabber.startAcq();
 }
 // Stops the acquisition, as soon as the m_acq_thread is retrieving frame buffers.
@@ -515,9 +547,7 @@ lima::VieworksVP::Camera::setLatTime(double  lat_time)
     << " due to internal timing constraints";
   }
   // Settting the frame rate for the frame-grabber (since it is responsible for triggering in IntTrig mode)
-  double  the_fps = 1.0 / (m_latency_time + m_exp_time);
-  m_grabber.setParameterNamed(names::trig_ext_fps, the_fps);
-  DEB_ALWAYS() << "Setting the frame rate of the FG-trigger to " << the_fps << "f/s.";
+  // Indeed to keep up the coherence of this part of the code, this should be (and is) performed in computeModeAndFPS.
 }
 void
 lima::VieworksVP::Camera::getLatTime(double& lat_time)
@@ -1398,15 +1428,20 @@ lima::VieworksVP::Camera::getReadoutTime(double &o_time) const
 void 
 lima::VieworksVP::Camera::computeModeAndFPS()
 {
+  DEB_MEMBER_FUNCT();
+
   // read-out =  [TVCCD + TFD × {VSIZE – (VAOI + 12)}/2 + {(VAOI + 12) × TL}/2]
   m_readout_time = 56.3e-6 // constant time part
     + 6.8e-6 * static_cast<double>(m_detector_size.getHeight() - m_roi.getSize().getHeight()) * 0.5 // time for unread lines
     + 90.125e-6 * static_cast<double>(m_roi.getSize().getHeight() + 16) * 0.5; // time for read lines (+ timeout)
 
   std::cerr << "**** READOUT TIME is " << m_readout_time << "s ****" << std::endl;
-  std::cerr << "**** Best rate is " << 1.0/m_readout_time << "f/s (0s exposure in standard mode, <" << m_readout_time << "s in overlap mode) ****" << std::endl;
+  std::cerr << "**** Best rate is " << 1.0/m_readout_time << "f/s (0s exposure in standard mode, exposure < " << m_readout_time << "s in overlap mode) ****" << std::endl;
   
   // From this computation, the exposure and the latency time, compute the mode to select (and possibly adjust the latency):
+  DEB_ALWAYS() << "Before computing mode, exp=" << m_exp_time << "s, "
+	       << "latency=" << m_latency_time << "s and "
+	       << "readout=" << m_readout_time << "s.";
   if ( m_latency_time > m_readout_time ) {
     setTrigger(VP_std_mode);
     std::cerr << "**** Setting trigger to STANDARD MODE ****" << std::endl;
@@ -1422,6 +1457,10 @@ lima::VieworksVP::Camera::computeModeAndFPS()
     std::cerr << " ****" << std::endl;
     // m_latency_time = m_readout_time + 10.0e-6;
   }
+  // Settting the frame rate for the frame-grabber (since it is responsible for triggering in IntTrig mode)
+  double  the_fps = 1.0 / (m_latency_time + m_exp_time);
+  m_grabber.setParameterNamed(names::trig_ext_fps, the_fps);
+  DEB_ALWAYS() << "Setting the frame rate of the FG-trigger to " << the_fps << "f/s (in accordance to exp. and lat. times).";
 }
 
 // Stopping an acquisition, iForce : without waiting the end of frame buffer retrieval by m_acq_thread
