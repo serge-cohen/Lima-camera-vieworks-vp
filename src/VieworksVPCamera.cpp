@@ -628,6 +628,12 @@ lima::VieworksVP::Camera::checkRoi(const Roi& set_roi, Roi& hw_roi)
   if ( (2 > (the_width % 2)) && ( 0 < (the_width % 2)) ) { // More than 2 pixels width to add, do at least on the left…
     left_margin -= 1;
   }
+
+  if ( 8 > the_width ) {
+    the_width = 8;
+    DEB_ALWAYS() << "Requested ROI (" << set_roi << "). Returned modified ROI (" << hw_roi << ")";
+  }
+  // Getting a multiple of 4 above (ceiling).
   the_width = 4 * (1+((the_width - 1) / 4));
   
   hw_roi = Roi(left_margin, top_margin, the_width, the_height);
@@ -1459,6 +1465,10 @@ lima::VieworksVP::Camera::computeModeAndFPS()
   }
   // Settting the frame rate for the frame-grabber (since it is responsible for triggering in IntTrig mode)
   double  the_fps = 1.0 / (m_latency_time + m_exp_time);
+  if ( 1.53 > the_fps ) {
+    DEB_ALWAYS() << "The frame rate of the FG-trigger should be " << the_fps << "f/s which is too LITTLE. Will overide it to 1.53f/s... This may caus    the_fps = 1.53";
+    the_fps=1.53;
+  }
   m_grabber.setParameterNamed(names::trig_ext_fps, the_fps);
   DEB_ALWAYS() << "Setting the frame rate of the FG-trigger to " << the_fps << "f/s (in accordance to exp. and lat. times).";
 }
