@@ -34,8 +34,8 @@
 // LImA headers :
 #include "lima/HwMaxImageSizeCallback.h"
 #include "lima/HwBufferMgr.h"
-#include "lima/SiSoME4Grabber.h"
-#include "lima/SiSoME4SerialLine.h"
+#include "SiSoME4Grabber.h"
+#include "SiSoME4SerialLine.h"
 
 // VieworksVP plugin headers :
 
