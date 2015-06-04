@@ -24,7 +24,7 @@
 // Camera SDK headers :
 
 // LImA headers :
-#include "HwInterface.h"
+#include "lima/HwInterface.h"
 
 // VieworksVP plugin headers :
 #include "VieworksVPCamera.h"
